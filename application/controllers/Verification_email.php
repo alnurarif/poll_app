@@ -22,33 +22,35 @@ class Verification_email extends CI_Controller {
         $this->load->view('template/common_template', $data);
     }
     public function send_verification_mail(){
-        
-        //Send Password by Email
-        $this->load->library('email');
-
-        $config['protocol'] = 'sendmail';
-        $config['mailpath'] = '/usr/sbin/sendmail';
-        $config['charset'] = 'iso-8859-1';
-        $config['wordwrap'] = TRUE;
-        $this->email->initialize($config);
 
         $id = $this->input->post('id');
-        
         $data = array();
         $data['company'] = $company = $this->Common_model->getDataById($id,'tbl_companies');
         
-        $mesg = $this->load->view('email/verification_email',$data,true);
+        $message = $this->load->view('email/verification_email',$data,true);
+
+        $config = Array(
+            'protocol' => 'sendmail',
+            'mailpath' => '/usr/sbin/sendmail',
+            'mailtype' => 'html',
+            'charset' => 'iso-8859-1',
+            'wordwrap' => TRUE
+        );
+
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('alnursarwer@gmail.com'); // change it to yours
+        $this->email->to('alnurarif@yahoo.com');// change it to yours
+        $this->email->subject('Verify Account');
+        $this->email->message($message);
+        if($this->email->send()){
+            $data['main_content'] = $this->load->view('verification_email/verification_mail_sent', $data, TRUE);
+            $this->load->view('template/common_template', $data); 
+        }else{
+            show_error($this->email->print_debugger());
+        }
         
-
-        $this->email->to('alnurarif@yahoo.com');
-        $this->email->from('alnursarwer@gmail.com', 'AlNurArif');
-        $this->email->subject("Verify Account");
-        $this->email->message($mesg);
-        $mail = $this->email->send();
-
-
-        $data['main_content'] = $this->load->view('verification_email/verification_mail_sent', $data, TRUE);
-        $this->load->view('template/common_template', $data);   
+          
     }
 }
 ?>
