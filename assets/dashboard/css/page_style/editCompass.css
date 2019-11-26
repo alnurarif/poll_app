@@ -1,0 +1,261 @@
+.fix{overflow:hidden;}
+.floatleft{float:left;}
+.floatright{float:right;}
+.textleft{text-align: left;}
+.textrightt{text-align: right;}
+.half{width:50%;}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    /*border: 1px solid #888;*/
+    width: 350px;
+    border-radius:0px;
+    overflow:hidden;
+}
+.modal-content .header{
+    background: #000;
+    padding: 5px 0px 5px 17px;
+}
+.modal-content .header h1{
+    padding: 0px;
+    margin: 0px;
+    color: #fff;
+    font-size: 20px;
+}
+.modal-content .body{
+    background: #ffffff;
+    padding: 10px 10px;
+}
+.modal-content .body p{
+    font-weight: bold;
+    font-size: 14px;
+}
+.modal-content .bottom{
+    background: #ffffff;
+    padding: 10px 10px;   
+    border-top : 1px solid #cfcfcf;
+}
+.modal-content .bottom .modalButton{
+    float: right;
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px 0px 0px 5px;
+}
+
+
+#helpPollModal{
+    padding-top: 100px !important;
+}
+#helpPollModalContent{
+    width: 450px;
+}
+#helpPollModal #helpPollModalContent .close_modal_cross{
+    position: absolute;
+    top: 0px;
+    right: 4px;
+    color: #fff;
+    font-size: 20px;
+    cursor:pointer;
+}
+#helpPollModalContent .help_header_section .header_text{font-weight: bold;font-size:15px;}
+#helpPollModalContent .help_paragraph_section{
+    width: 95%;
+    margin-left: 5%;
+    font-size:14px;
+    height:0px;
+    overflow:hidden;
+}
+.help_header_section .arrow_up{display:none;cursor:pointer;}
+.help_header_section .arrow_down{cursor:pointer;}
+
+
+
+
+#addIconsToSpeedoMeterSection{
+
+}
+#addIconsToSpeedoMeterSectionContent{
+    width: 900px;
+}
+.updateSpeedoMeterContent{
+    padding:5px 10px;
+}
+#icon_section{
+    width: 52%;
+    padding: 1%;
+    border-right: 1px dotted #afafaf;
+    height: 500px;
+}
+#search_icon, #icon_name_to_insert{
+    border: none;
+    width: 100%;
+    font-size: 14px;
+}
+#icon_detail_section{
+    width:48%;
+    padding : 1%;
+}
+#previous_icons,#upload_icon_file_section{
+    width: 100%;
+    margin: 5px 0px 0px 0px;
+    padding: 15px 0px;
+    display: inline-block;
+    height: 410px;
+    background: #f3f3f3;
+    border-radius: 3px;
+    overflow:hidden;
+}
+
+.single_icon_and_name{
+    width: 20%;
+    float: left;
+    text-align: center;
+    margin: 5px 0px;
+    min-height: 115px;
+}
+.single_icon_and_name:hover{
+    background: #e8e8e8;
+    cursor:pointer;
+}
+.single_icon_and_name .icon_image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #cfcfcf;
+}
+.single_icon_and_name .icon_name_show {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px;
+    color: #7e7e7e;
+    margin: 5px auto;
+    width: 96%;
+    text-align: center;
+}
+.top_border_div{
+    border-top: 1px solid #cfcfcf;
+    width:100%;
+}
+#create_new_icon_button, #icon_submit_button, #icon_submit_cancel,#icon_save_cancel,#icon_submit_button_for_right{
+    float: right;
+    background: #000;
+    border: none;
+    color: #ffffff;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor : pointer;
+}
+#icon_submit_button{
+    display: none;
+}
+#icon_submit_cancel,#icon_save_cancel{
+    margin-right : 5px;
+}
+#add_icon_portion{
+    display:none;
+}
+#icon_image_preview{
+    width: 100%;
+    margin: 15px 0px 0px 0px;
+}
+#right_preview_icon_image{
+    width: 55px;
+    height: 55px;
+    float: left;
+    border: 2px solid #cfcfcf;
+    border-radius: 50%;
+}
+.icon_and_name{
+    width: 100%;
+    height: 60px;
+}
+#icon_name_just_show{
+    float: left;
+    line-height: 50px;
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+    font-size: 14px;
+}
+#icon_detail_section textarea{
+    width: 100%;
+    resize: none;
+    font-size: 14px;
+    height: 110px;
+    margin: 15px 0px 0px 0px;
+}
+#icon_name_and_detail{
+    height: 445px;
+}
+
+
+
+
+
+
+
+
+
+
+#compass_wrapper{
+    position: relative;
+    margin: 0 auto;
+    width: 350px;
+}
+.compass_image_holder{
+    position: absolute;
+}
+.compass_image_holder img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: -50% 0px 0px -50% !important;
+    border: 2px solid #828282;
+    cursor : pointer;
+}
+
+
+#compass_vote_percentage_1{position:absolute;font-size: 10px;font-weight: bold;top: 85px; left: 215px;}
+#compass_vote_percentage_2{position:absolute;font-size: 10px;font-weight: bold;top: 153px;left: 271px;}
+#compass_vote_percentage_3{position:absolute;font-size: 10px;font-weight: bold;top: 245px;left: 215px;} 
+#compass_vote_percentage_4{position:absolute;font-size: 10px;font-weight: bold;top: 245px;left: 115px;} 
+#compass_vote_percentage_5{position:absolute;font-size: 10px;font-weight: bold;top: 153px;left: 65px;}
+#compass_vote_percentage_6{position:absolute;font-size: 10px;font-weight: bold;top: 85px;left: 115px;}
+
+
+.poll_help{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+}
+.poll_help p{
+    margin: 0px;
+    padding: 0px;
+    color: #000;
+    font-size: 24px;
+    line-height: 24px;
+}

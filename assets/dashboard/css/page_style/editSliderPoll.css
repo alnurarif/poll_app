@@ -1,0 +1,341 @@
+.fix{overflow:hidden;}
+.floatleft{float:left;}
+.floatright{float:right;}
+.textleft{text-align: left;}
+.textrightt{text-align: right;}
+.half{width:50%;}
+
+
+#slider_poll_section{
+    width: 100%;
+    height: 150px;
+}
+#plain_slider_wrapper{
+    width: 512px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#plain_slider{
+
+}
+#plain_slider .first{padding-right:5px;}
+#plain_slider .second{width:400px;height: 60px;position: relative; margin-top: 0px;}
+#plain_slider .third{padding-left:5px;}
+#plain_slider .first img,#plain_slider .third img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #989898;
+    margin-top: 0px;
+    cursor:pointer;
+}
+#slide_line{
+    height: 8px;
+    width: 400px;
+    background: #000000;
+    border-radius: 30px;
+    top: 25px;
+    position: absolute;
+}
+#slider{
+    width: 525px;
+    height: 60px;
+}
+#slider .second img{
+    width: 50px;
+    position: absolute;
+    left: 0px;
+    cursor: pointer;
+    padding:5px 0px;
+        margin-top: 0px;
+}
+#slider_options{
+    width:525px;
+}
+#slider_options .left_space{height:50px;width:95px;}
+#slider_options .right_space{height:50px;width:95px;}
+#slider_options .left_option{
+    width: 140px;
+    font-size: 13px;
+    font-weight: bold;
+}
+#slider_options .right_option{
+    width: 140px;
+    margin: 0px 0px 0px 55px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    /*border: 1px solid #888;*/
+    width: 350px;
+    border-radius:0px;
+    overflow:hidden;
+}
+.modal-content .header{
+    background: #000;
+    padding: 5px 0px 5px 17px;
+}
+.modal-content .header h1{
+    padding: 0px;
+    margin: 0px;
+    color: #fff;
+    font-size: 20px;
+}
+.modal-content .body{
+    background: #ffffff;
+    padding: 10px 10px;
+}
+.modal-content .body p{
+    font-weight: bold;
+    font-size: 14px;
+}
+.modal-content .bottom{
+    background: #ffffff;
+    padding: 10px 10px;   
+    border-top : 1px solid #cfcfcf;
+}
+.modal-content .bottom .modalButton{
+    float: right;
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px 0px 0px 5px;
+}
+
+#deletePollModal{
+    padding-top: 200px !important;
+}
+
+
+#helpPollModal{
+    padding-top: 100px !important;
+}
+#helpPollModalContent{
+    width: 450px;
+}
+#helpPollModal #helpPollModalContent .close_modal_cross{
+    position: absolute;
+    top: 0px;
+    right: 4px;
+    color: #fff;
+    font-size: 20px;
+    cursor:pointer;
+}
+#helpPollModalContent .help_header_section .header_text{font-weight: bold;font-size:15px;}
+#helpPollModalContent .help_paragraph_section{
+    width: 95%;
+    margin-left: 5%;
+    font-size:14px;
+    height:0px;
+    overflow:hidden;
+}
+.help_header_section .arrow_up{display:none;cursor:pointer;}
+.help_header_section .arrow_down{cursor:pointer;}
+
+
+
+
+.open_delete_modal{
+    cursor:pointer;
+}
+
+.open_poll_help_modal{
+    cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+#addIconsToSpeedoMeterSection{
+
+}
+#addIconsToSpeedoMeterSectionContent{
+    width: 900px;
+}
+.updateSpeedoMeterContent{
+    padding:5px 10px;
+}
+#icon_section{
+    width: 52%;
+    padding: 1%;
+    border-right: 1px dotted #afafaf;
+    height: 500px;
+}
+#search_icon, #icon_name_to_insert{
+    border: none;
+    width: 100%;
+    font-size: 14px;
+}
+#icon_detail_section{
+    width:48%;
+    padding : 1%;
+}
+#previous_icons,#upload_icon_file_section{
+    width: 100%;
+    margin: 5px 0px 0px 0px;
+    padding: 15px 0px;
+    display: inline-block;
+    height: 410px;
+    background: #f3f3f3;
+    border-radius: 3px;
+    overflow:hidden;
+}
+
+.single_icon_and_name{
+    width: 20%;
+    float: left;
+    text-align: center;
+    margin: 5px 0px;
+    min-height: 115px;
+}
+.single_icon_and_name:hover{
+    background: #e8e8e8;
+    cursor:pointer;
+}
+.single_icon_and_name .icon_image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #cfcfcf;
+}
+.single_icon_and_name .icon_name_show {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px;
+    color: #7e7e7e;
+    margin: 5px auto;
+    width: 96%;
+    text-align: center;
+}
+.top_border_div{
+    border-top: 1px solid #cfcfcf;
+    width:100%;
+}
+#create_new_icon_button, #icon_submit_button, #icon_submit_cancel,#icon_save_cancel,#icon_submit_button_for_right{
+    float: right;
+    background: #000;
+    border: none;
+    color: #ffffff;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor : pointer;
+}
+#icon_submit_button{
+    display: none;
+}
+#icon_submit_cancel,#icon_save_cancel{
+    margin-right : 5px;
+}
+#add_icon_portion{
+    display:none;
+}
+#icon_image_preview{
+    width: 100%;
+    margin: 15px 0px 0px 0px;
+}
+#right_preview_icon_image{
+    width: 55px;
+    height: 55px;
+    float: left;
+    border: 2px solid #cfcfcf;
+    border-radius: 50%;
+}
+.icon_and_name{
+    width: 100%;
+    height: 60px;
+}
+#icon_name_just_show{
+    float: left;
+    line-height: 50px;
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+    font-size: 14px;
+}
+#icon_detail_section textarea{
+    width: 100%;
+    resize: none;
+    font-size: 14px;
+    height: 110px;
+    margin: 15px 0px 0px 0px;
+}
+#icon_name_and_detail{
+    height: 445px;
+}
+
+
+
+#show_vote_percentage{
+    height: 30px;
+    width: 100%;
+    margin: 0px 0px 12px 0px;
+}
+#show_vote_percentage .slider_percentage_text{
+    color: #000;
+    text-align: center;
+    margin: 0px;
+    font-size: 10px;
+    font-weight: bold;
+    /*display: none;*/
+}
+
+
+#view_question_show{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+#total_votes_show{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;   
+}
+
+
+
+
+.poll_help{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+}
+.poll_help p{
+    margin: 0px;
+    padding: 0px;
+    color: #000;
+    font-size: 24px;
+    line-height: 24px;
+}

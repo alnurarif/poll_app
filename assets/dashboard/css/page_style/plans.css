@@ -1,0 +1,60 @@
+.fix{overflow:hidden;}
+.floatleft{float:left;}
+.floatright{float:right;}
+.textleft{text-align: left;}
+.textrightt{text-align: right;}
+.half{width:50%;}
+p,h1,h2,h3,h4,h5,h6,ul,li,div,span{
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+}
+.plans_wrapper{ width:960px; margin:0 auto;}
+.plans_wrapper .plan_section{padding: 30px 0px;}
+.plans_wrapper .plan_section .plan_types{width:500px; margin:0 auto; text-align: center;}
+.plans_wrapper .plan_section .plan_types #main_header{}
+.plans_wrapper .plan_section .plan_types .plan_type_buttons{margin: 15px 0px 0px 0px;}
+.plans_wrapper .plan_section .plan_types .plan_type_buttons .plan_type_button{
+	background-color:#808080; 
+	color:#fff; 
+	width:33.333333%;
+	border:none; 
+	padding:10px 10px;
+	cursor:pointer;
+
+}
+#annually_button{
+	border-radius: 5px 0px 0px 5px;
+    border-right: 1px solid #cfcfcf;
+}
+#monthly_button{border-right: 1px solid #cfcfcf;}
+#quarterly_button{
+	border-radius: 0px 5px 5px 0px;
+}
+.plans_wrapper .plan_section .plans{margin: 20px 0px 0px 0px;}
+.plans_wrapper .plan_section .plans .plan{}
+.plans_wrapper .plan_section .plans .plan .header_row{border-top: 1px solid #cfcfcf;}
+.plans_wrapper .plan_section .plans .plan .header_row .plan_column{padding:30px 0px;}
+  
+.plans_wrapper .plan_section .plans .plan .plan_row{
+	    border-bottom: 1px solid #cfcfcf;
+}
+.plans_wrapper .plan_section .plans .plan .plan_row .plan_column1{
+	border-left:1px solid #cfcfcf;
+	border-right:1px solid #cfcfcf;
+	width: 30%;
+}
+.plans_wrapper .plan_section .plans .plan .plan_row .plan_column2{
+	border-right:1px solid #cfcfcf;
+	width:40%;
+}
+.plans_wrapper .plan_section .plans .plan .plan_row .plan_column3{
+	border-right:1px solid #cfcfcf;
+	width: 30%;
+}
+.force_half{
+	width:50% !important;
+}
+.plans_wrapper .plan_section .plans .plan .plan_row .plan_column{text-align:center;}
+.plans_wrapper .plan_section .plans .plan .plan_row .plan_column p{padding:10px 0px; height:65px; line-height: 43px;}
+.plans_wrapper .plan_section .plans .plan .plan_row .plan_column .header{font-size:20px;font-weight: bold;}

@@ -1,0 +1,543 @@
+.textleft{
+    text-align: left;
+}
+.textright{
+    text-align: right;
+}
+.half{width:50%;}
+.floatleft{
+    float:left;
+}
+.floatright{
+    float:right;
+}
+.fix{overflow:hidden;}
+
+
+#question{
+    margin: 0px 0px 40px 0px;
+}
+#question h2{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+#poll_holder{
+    padding: 40px 0px 15px 0px;
+    width: 100%;
+    background: #fcfcfc;
+    border-left: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+    border-bottom: 1px solid #cfcfcf;
+    margin: 0px 0px 35px 0px;
+}
+
+#poll_holder_inside{
+    width: 512px;
+    margin: 0 auto;
+    border-top: 2px solid #cfcfcf;
+    border-bottom: 2px solid #cfcfcf;
+    padding: 40px 0px 0px 0px;
+    overflow: hidden;
+}
+
+#question2{
+    margin: 0px 0px 40px 0px;
+}
+#question2 h2{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+#poll_holder2{
+    padding: 50px 0px;
+    border:1px solid #cfcfcf;
+    width: 100%;
+}
+
+
+#compass2{
+    background: url(../../dashboard/img/circle_border.png) no-repeat;
+    width: 300px;
+    height: 150px;
+    background-size: 300px 300px;
+}    
+#compass_wrapper2{
+    width:300px;
+    margin:0 auto;
+}
+#compass_hand2 {
+    background: #cfcfcf url(../../dashboard/img/speedo_meter_hand.png) center center no-repeat;
+    width: 38px;
+    height: 235px;
+    position: absolute;
+    top: 30px;
+    left: 132px;
+    cursor: pointer;
+    background-size: 38px 235px;
+}
+#speedo_meter_pointer_icon {
+    background: url(../../dashboard/img/speedo_meter_basic_pointer.png) center center no-repeat;
+    width: 24px;
+    height: 309px;
+    position: absolute;
+    top: 0px;
+    left: 138px;
+    cursor: pointer;
+    background-size: 24px 316px;
+    z-index: 15;
+}
+#speedo_meter_pointer_icon img{
+    margin-top: -24px;
+    margin-left: -12px;
+    width: 48px;
+    -webkit-transition: margin-left .4s,margin-top .4s,width .4s, height .4s; /* For Safari 3.1 to 6.0 */
+    transition: margin-left .4s,margin-top .4s,width .4s, height .4s;
+}
+#debate_between{min-height:70px;margin: 18px 0px 0px 0px;}
+#debate_between p{
+    font-size: 14px;
+    font-weight: normal;
+    color: #000;
+    line-height: 22px;
+    width: 90%;
+}
+#debate_between img{
+        width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #cfcfcf;
+    margin: -25px 0px 0px 0px;
+}
+
+
+
+#wrapper_poll{
+    /*display: none;    */
+    overflow:hidden;
+    border:1px solid #cfcfcf;
+    background:#fcfcfc;
+    margin: 90px 0px 0px 0px;
+    transition: height 1s;
+    height:0px;
+    /*padding: 100px 0px 100px 0px;*/
+}
+
+
+
+#icon_slider1,#icon_slider2,#icon_slider3{
+    /*width:0px;*/
+}
+.icon_slider {
+    background: transparent;
+    width: 0px;
+    height: 336px;
+    position: absolute;
+    top: -18px;
+    left: 127px;
+    cursor: pointer;
+    background-size: 45px 336px;
+    z-index:10;
+}
+.moving_icon_image{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: 0px !important;
+    border: 2px solid #828282;
+}
+
+
+
+#total_poll_section{
+    margin: 15px 0px 0px 0px;
+    overflow: hidden;
+    padding: 10px 10px;
+    width: 100%;
+}
+
+
+
+
+
+
+/*left right cross*/
+#left_right_cross_holder{
+    height:40px;
+    width:100%;
+}
+#left_right_cross{
+    float: right;
+    background: #fff;
+    border-left: 1px solid #cfcfcf;
+    border-bottom: 1px solid #cfcfcf;;
+}
+#question_left,#question_right,#question_cross{
+    font-size: 15px;
+    line-height: 38px;
+    padding: 0px 13px;
+    cursor:pointer;
+}
+#question_left{border-right: 1px solid #cfcfcf;}
+#question_right{border-right: 1px solid #cfcfcf;}
+#question_cross{}
+/*left right cross end*/
+
+
+
+#poll_tabs{
+    width: 100%;
+    border-bottom: 1px solid #cfcfcf;
+}
+#poll_tabs .single_tab{
+    font-size: 14px;
+    display: inline-block;
+    border-top: 1px solid #cfcfcf;
+    border-left: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+    padding: 0px 18px;
+}
+#poll_tabs .single_tab p{
+    color: #000;
+    margin: 0px;
+    line-height: 40px;
+}
+
+
+
+
+
+#social_share_vote_section{height: 40px;}
+#social_share_vote_section .social_share{}
+#social_share_vote_section .vote_section{font-weight: bold;}
+#company_logo_very_small{
+    height: 35px;
+    width: 512px;
+    margin: 0 auto;
+    position: relative;
+}
+#company_logo_very_small img{
+    width: 25px;
+    float: right;
+    margin: 5px 12px 0px 0px;
+}
+
+
+#debate_page_banner{
+    background: #2A2A2A;
+    width: 100%;
+    padding: 30px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+#slider_poll_section{
+    width: 100%;
+    height: 150px;
+}
+#plain_slider_wrapper{
+    width: 512px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#plain_slider{
+
+}
+#plain_slider .first{padding-right:5px;margin: 3px 0px 0px 0px;}
+#plain_slider .second{width:400px;height: 60px;position: relative; margin-top: 0px;}
+#plain_slider .third{padding-left:5px;margin: 3px 0px 0px 0px;}
+#plain_slider .first img,#plain_slider .third img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #989898;
+    margin-top: 0px;
+    cursor:pointer;
+}
+#slide_line{
+    height: 8px;
+    width: 350px;
+    background: #000000;
+    border-radius: 30px;
+    top: 25px;
+    position: absolute;
+    margin-left: 25px;
+}
+#slider{
+    width: 525px;
+    height: 60px;
+}
+#slider .second img{
+        width: 50px;
+    position: absolute;
+    left: 0px;
+    cursor: pointer;
+    padding: 5px 0px;
+    margin-top: 0px;
+    height: 60px;
+    border-radius: 50%;
+}
+#slider_options{
+    width:525px;
+}
+#slider_options .left_space{height:50px;width:95px;}
+#slider_options .right_space{height:50px;width:95px;}
+#slider_options .left_option{
+    width: 140px;
+    font-size: 13px;
+    font-weight: bold;
+}
+#slider_options .right_option{
+    width: 140px;
+    margin: 0px 0px 0px 55px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+#image_after_voting{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-left: -200px;
+    margin-top: -200px;
+    z-index: 16 ;
+display:none;
+}
+#image_after_voting #add_image{
+    width:400px;
+    height:0px;
+    transition: height 1s;
+
+}
+
+#close_add_button{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+}
+#close_add_button img{
+    width:25px;
+    height:25px;
+}
+
+
+
+#left_vote_percentage{
+    position: absolute;
+    top: 95px;
+    left: 50px;
+    font-size: 10px;
+    font-weight: bold;
+}
+#left_vote_percentage,#mid_vote_percentage_text{
+    
+}
+#mid_vote_percentage{
+    position: absolute;
+    top: 26px;
+    left: 142px;
+    font-size: 10px;
+    font-weight: bold;
+}
+#right_vote_percentage{
+    position: absolute;
+    top: 95px;
+    right: 50px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+#compass_vote_percentage_1{position:absolute;font-size: 10px;font-weight: bold;top: 85px; left: 215px;}
+#compass_vote_percentage_2{position:absolute;font-size: 10px;font-weight: bold;top: 153px;left: 271px;}
+#compass_vote_percentage_3{position:absolute;font-size: 10px;font-weight: bold;top: 245px;left: 215px;} 
+#compass_vote_percentage_4{position:absolute;font-size: 10px;font-weight: bold;top: 245px;left: 115px;} 
+#compass_vote_percentage_5{position:absolute;font-size: 10px;font-weight: bold;top: 153px;left: 65px;}
+#compass_vote_percentage_6{position:absolute;font-size: 10px;font-weight: bold;top: 85px;left: 115px;}
+
+.speedo_meter_vote_percentage_text,.compass_vote_percentage_text{
+    display:none;
+}
+
+
+#show_vote_percentage{
+    height: 30px;
+    width: 100%;
+    margin: 0px 0px 12px 0px;
+}
+#show_vote_percentage .slider_percentage_text{
+    color: #000;
+    text-align: center;
+    margin: 0px;
+    font-size: 10px;
+    font-weight: bold;
+    display: none;
+}
+
+
+
+
+
+#information_icon{
+    position: absolute;
+    width: 12px !important;
+    right: 1px;
+    top: 3px;
+    margin: 0px !important;
+    cursor:pointer;
+}
+
+
+
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    /*border: 1px solid #888;*/
+    width: 460px;
+    border-radius:0px;
+    overflow:hidden;
+}
+.modal-content .header{
+    background: #000;
+    padding: 5px 0px 5px 17px;
+}
+.modal-content .header h1{
+    padding: 0px;
+    margin: 0px;
+    color: #fff;
+    font-size: 20px;
+}
+#company_info_wrapper{}
+#company_info_wrapper p{color:#000;}
+#company_info_content{padding: 10px 10px;padding: 20px 20px;min-height: 350px}
+#company_info_content .info_header_section .header_text{font-weight: bold;font-size:15px;}
+#company_info_content .info_paragraph_section{
+    width: 95%;
+    margin-left: 5%;
+    font-size:14px;
+    height:0px;
+    overflow:hidden;
+}
+.info_header_section .arrow_up{display:none;cursor:pointer;}
+.info_header_section .arrow_down{cursor:pointer;}
+
+#company_info_wrapper_close{
+    width: 17px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#compass_wrapper{
+    position: relative;
+    margin: 20px auto;
+    width: 350px;
+}
+.compass_image_holder{
+    position: absolute;
+}
+.compass_image_holder img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: -50% 0px 0px -50% !important;
+    border: 2px solid #828282;
+}
+
+#compass_hand {
+    background: url(../../dashboard/img/clock_hand4.png) center center no-repeat;
+    width: 30px;
+    height: 235px;
+    position: absolute;
+    top: 56px;
+    left: 160px;
+    cursor: pointer;
+    background-size: 30px 235px;
+}
+#compass{
+    background: url(../../dashboard/img/earth_compass3.jpg) no-repeat;
+    width: 350px;
+    height: 350px;
+    background-size: 320px 320px;
+    background-position: center;
+}
+#compass_section {
+    overflow: hidden;
+    height: 310px;
+}
+#compass_hand_company_logo{
+    margin-top: 99px;
+    border: 1px solid #6b6b6b;
+    border-radius: 50%;
+    height: 38px;
+    width: 38px;
+}
+
+
+
+.container2 {
+  /*centers in the container*/
+  text-align: center;
+}
+
+div.circTxt {
+  /*allows for centering*/
+  display: inline-block;
+  /*adjust as needed*/
+  margin-bottom: 128px;
+  color: #000;
+}
+div.circTxt p{
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    font-family: courier new;
+    color: #000;
+}

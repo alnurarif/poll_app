@@ -1,0 +1,46 @@
+.fix{overflow:hidden;}
+.floatleft{float:left;}
+.floatright{float:right;}
+.textleft{text-align: left;}
+.textrightt{text-align: right;}
+.half{width:50%;}
+#compass_hand {
+    background: url(../../img/clock_hand4.png) center center no-repeat;
+    width: 30px;
+    height: 235px;
+    position: absolute;
+    top: 56px;
+    left: 160px;
+    cursor: pointer;
+    background-size: 30px 235px;
+}
+#compass{
+    background: url(../../img/earth_compass3.jpg) no-repeat;
+    width: 350px;
+    height: 350px;
+    background-size: 320px 320px;
+    background-position: center;
+}
+#compass_section {
+    overflow: hidden;
+    height: 360px;
+}
+.container2 {
+  /*centers in the container*/
+  text-align: center;
+}
+
+div.circTxt {
+  /*allows for centering*/
+  display: inline-block;
+  /*adjust as needed*/
+  margin-bottom: 128px;
+  color: #000;
+}
+div.circTxt p{
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    font-family: courier new;
+    color: #000;
+}
