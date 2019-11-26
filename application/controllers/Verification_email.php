@@ -41,7 +41,7 @@ class Verification_email extends CI_Controller {
         
 
         $this->email->to('alnurarif@yahoo.com');
-        $this->email->from('alnurarif@gmail.com', 'AlNurArif');
+        $this->email->from('alnursarwer@gmail.com', 'AlNurArif');
         $this->email->subject("Verify Account");
         $this->email->message($mesg);
         $mail = $this->email->send();
