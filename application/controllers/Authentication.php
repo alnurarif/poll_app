@@ -51,10 +51,16 @@ class Authentication extends CI_Controller {
                 $login_session['name'] = $company_information->name;
                 $login_session['email'] = $company_information->email;
                 $login_session['phone'] = $company_information->phone;
+                $login_session['bought_package'] = $company_information->bought_package;
                 //Set session
                 $this->session->set_userdata($login_session);
                 
-                redirect("Dashboard");
+                if($company_information->bought_package==0){
+                    redirect("Plans");    
+                }else{
+                    redirect("Dashboard");    
+                }
+                
             } else {
                 $this->session->set_flashdata('exception_1', lang('incorrect_email_password'));
                 redirect('Authentication/index');

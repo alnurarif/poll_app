@@ -58,3 +58,16 @@ p,h1,h2,h3,h4,h5,h6,ul,li,div,span{
 .plans_wrapper .plan_section .plans .plan .plan_row .plan_column{text-align:center;}
 .plans_wrapper .plan_section .plans .plan .plan_row .plan_column p{padding:10px 0px; height:65px; line-height: 43px;}
 .plans_wrapper .plan_section .plans .plan .plan_row .plan_column .header{font-size:20px;font-weight: bold;}
+.plans_wrapper .plan_section .plans .plan .plan_row .plan_column .button{
+	width: 100px;
+    display: block;
+    background-color: #222;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 42px;
+    text-align: center;
+    width: 70%;
+    margin: 10px auto;
+    font-weight: bold;	
+}

@@ -21,4 +21,8 @@ class Plans extends CI_Controller {
         $data = array();
         $this->load->view('plans/plans', $data);
     }
+    public function test_ipn()
+    {
+        # code...
+    }
 }
