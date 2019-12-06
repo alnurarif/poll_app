@@ -12,9 +12,9 @@ class Plans extends CI_Controller {
         $this->load->model('Vote_model');
         $this->load->model('Poll_model');
         $this->load->helper('cookie');
-        if (!$this->session->has_userdata('company_id')) {
-            redirect('Authentication/index');
-        } 
+        // if (!$this->session->has_userdata('company_id')) {
+        //     redirect('Authentication/index');
+        // } 
 
     }
     public function index(){
