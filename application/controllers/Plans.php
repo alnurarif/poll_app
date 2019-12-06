@@ -37,8 +37,15 @@ class Plans extends CI_Controller {
         $response = curl_exec($ch);
         curl_close($ch);
         // file_put_contents("test.txt", $response);
+        // 
+        $text = '';
+        if($response=="VERIFIED"){
+            foreach($this->input->post() as $key=>$value){
+                $text .= $key.'->'.$value;
+            }
+        }
         $this->load->helper('file');
-        if ( ! write_file(FCPATH.'/assets/test.txt', $response))
+        if ( ! write_file(FCPATH.'/assets/test.txt', $text))
         {
         echo 'Unable to write the file';
         }
