@@ -133,14 +133,53 @@
 						</div>
 						<div class="plan_row fix">
 							<div class="plan_column plan_column1 fix floatleft"><a href="<?php echo base_url(); ?>Dashboard" class="button">Use Free</a></div>
-							<div class="plan_column plan_column2 fix floatleft"><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-</div>
-							<div class="plan_column plan_column3 fix floatleft"><p>Unlimited</p></div>
+							<div class="plan_column plan_column2 fix floatleft">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+									<input type="hidden" name="cmd" value="_xclick">
+									<input type="hidden" name="business" value="AQKGCMT349MEA">
+									<input type="hidden" name="company_id" value="<?php echo $this->session->userdata('company_id'); ?>">
+									<input type="hidden" name="product_id" value="1">
+									<input type="hidden" name="lc" value="NZ">
+									<input type="hidden" name="item_name" value="Annual Starter Package">
+									<input type="hidden" name="item_number" value="1">
+									<input type="hidden" name="amount" value="240.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="button_subtype" value="services">
+									<input type="hidden" name="no_note" value="1">
+									<input type="hidden" name="no_shipping" value="1">
+									<input type="hidden" name="rm" value="1">
+									<input type="hidden" name="return" value="http://huqeexpress.com/poll2/Dashboard">
+									<input type="hidden" name="cancel_return" value="http://huqeexpress.com/poll2/Plans/">
+									<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+									<input type="hidden" name="notify_url" value="http://huqeexpress.com/poll2/Plans/IPN_Listener">
+									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+
+							</div>
+							<div class="plan_column plan_column3 fix floatleft">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+									<input type="hidden" name="cmd" value="_xclick">
+									<input type="hidden" name="business" value="AQKGCMT349MEA">
+									<input type="hidden" name="company_id" value="<?php echo $this->session->userdata('company_id'); ?>">
+									<input type="hidden" name="product_id" value="2">
+									<input type="hidden" name="lc" value="NZ">
+									<input type="hidden" name="item_name" value="Annual Premium Package">
+									<input type="hidden" name="item_number" value="2">
+									<input type="hidden" name="amount" value="600.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="button_subtype" value="services">
+									<input type="hidden" name="no_note" value="1">
+									<input type="hidden" name="no_shipping" value="1">
+									<input type="hidden" name="rm" value="1">
+									<input type="hidden" name="return" value="http://huqeexpress.com/poll2/Dashboard">
+									<input type="hidden" name="cancel_return" value="http://huqeexpress.com/poll2/Plans/">
+									<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+
+							</div>
 						</div>
 					</div>
 
@@ -205,6 +244,74 @@
 							<div class="plan_column plan_column2 fix floatleft"><p>&nbsp;</p></div>
 							<div class="plan_column plan_column3 fix floatleft"><p>Unlimited websites for one month</p></div>
 						</div>
+						<div class="plan_row fix">
+							<div class="plan_column plan_column1 fix floatleft">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+									<input type="hidden" name="cmd" value="_xclick">
+									<input type="hidden" name="business" value="AQKGCMT349MEA">
+									<input type="hidden" name="company_id" value="<?php echo $this->session->userdata('company_id'); ?>">
+									<input type="hidden" name="product_id" value="3">
+									<input type="hidden" name="lc" value="NZ">
+									<input type="hidden" name="item_name" value="Month Basic Package">
+									<input type="hidden" name="item_number" value="3">
+									<input type="hidden" name="amount" value="60.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="button_subtype" value="services">
+									<input type="hidden" name="no_note" value="1">
+									<input type="hidden" name="no_shipping" value="1">
+									<input type="hidden" name="rm" value="1">
+									<input type="hidden" name="return" value="http://huqeexpress.com/poll2/Dashboard">
+									<input type="hidden" name="cancel_return" value="http://huqeexpress.com/poll2/Plans/">
+									<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							</div>
+							<div class="plan_column plan_column2 fix floatleft">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+									<input type="hidden" name="cmd" value="_xclick">
+									<input type="hidden" name="business" value="AQKGCMT349MEA">
+									<input type="hidden" name="company_id" value="<?php echo $this->session->userdata('company_id'); ?>">
+									<input type="hidden" name="product_id" value="4">
+									<input type="hidden" name="lc" value="NZ">
+									<input type="hidden" name="item_name" value="Month Starter Package">
+									<input type="hidden" name="item_number" value="4">
+									<input type="hidden" name="amount" value="420.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="button_subtype" value="services">
+									<input type="hidden" name="no_note" value="1">
+									<input type="hidden" name="no_shipping" value="1">
+									<input type="hidden" name="rm" value="1">
+									<input type="hidden" name="return" value="http://huqeexpress.com/poll2/Dashboard">
+									<input type="hidden" name="cancel_return" value="http://huqeexpress.com/poll2/Plans/">
+									<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							</div>
+							<div class="plan_column plan_column3 fix floatleft">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+									<input type="hidden" name="cmd" value="_xclick">
+									<input type="hidden" name="business" value="AQKGCMT349MEA">
+									<input type="hidden" name="company_id" value="<?php echo $this->session->userdata('company_id'); ?>">
+									<input type="hidden" name="product_id" value="5">
+									<input type="hidden" name="lc" value="NZ">
+									<input type="hidden" name="item_name" value="Premium Starter Package">
+									<input type="hidden" name="item_number" value="5">
+									<input type="hidden" name="amount" value="1188.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="button_subtype" value="services">
+									<input type="hidden" name="no_note" value="1">
+									<input type="hidden" name="no_shipping" value="1">
+									<input type="hidden" name="rm" value="1">
+									<input type="hidden" name="return" value="http://huqeexpress.com/poll2/Dashboard">
+									<input type="hidden" name="cancel_return" value="http://huqeexpress.com/poll2/Plans/">
+									<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							</div>
+						</div>
 					</div>
 
 					<div class="plan fix" id="quarterly_plan">
@@ -236,6 +343,53 @@
 						<div class="plan_row fix">
 							<div class="plan_column plan_column1 force_half fix floatleft"><p>&nbsp;</p></div>
 							<div class="plan_column plan_column3 force_half fix floatleft"><p>Access to Basic Option Monthly package of View Point B</p></div>
+						</div>
+						<div class="plan_row fix">
+							<div class="plan_column plan_column1 force_half fix floatleft">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+									<input type="hidden" name="cmd" value="_xclick">
+									<input type="hidden" name="business" value="AQKGCMT349MEA">
+									<input type="hidden" name="company_id" value="<?php echo $this->session->userdata('company_id'); ?>">
+									<input type="hidden" name="product_id" value="6">
+									<input type="hidden" name="lc" value="NZ">
+									<input type="hidden" name="item_name" value="Quarter Basic Package">
+									<input type="hidden" name="item_number" value="6">
+									<input type="hidden" name="amount" value="2388.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="button_subtype" value="services">
+									<input type="hidden" name="no_note" value="1">
+									<input type="hidden" name="no_shipping" value="1">
+									<input type="hidden" name="rm" value="1">
+									<input type="hidden" name="return" value="http://huqeexpress.com/poll2/Dashboard">
+									<input type="hidden" name="cancel_return" value="http://huqeexpress.com/poll2/Plans/">
+									<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							</div>
+							<div class="plan_column plan_column3 force_half fix floatleft">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+									<input type="hidden" name="cmd" value="_xclick">
+									<input type="hidden" name="business" value="AQKGCMT349MEA">
+									<input type="hidden" name="company_id" value="<?php echo $this->session->userdata('company_id'); ?>">
+									<input type="hidden" name="product_id" value="7">
+									<input type="hidden" name="lc" value="NZ">
+									<input type="hidden" name="item_name" value="Quarter Premium Package">
+									<input type="hidden" name="item_number" value="7">
+									<input type="hidden" name="amount" value="4788.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="button_subtype" value="services">
+									<input type="hidden" name="no_note" value="1">
+									<input type="hidden" name="no_shipping" value="1">
+									<input type="hidden" name="rm" value="1">
+									<input type="hidden" name="return" value="http://huqeexpress.com/poll2/Dashboard">
+									<input type="hidden" name="cancel_return" value="http://huqeexpress.com/poll2/Plans/">
+									<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							</div>
+							
 						</div>
 					</div>
 				</div>

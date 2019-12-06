@@ -11,6 +11,7 @@ class Plans extends CI_Controller {
         $this->load->model('Poll_icons_model');
         $this->load->model('Vote_model');
         $this->load->model('Poll_model');
+        $this->load->model('Payment_model');
         $this->load->helper('cookie');
         // if (!$this->session->has_userdata('company_id')) {
         //     redirect('Authentication/index');
@@ -21,7 +22,7 @@ class Plans extends CI_Controller {
         $data = array();
         $this->load->view('plans/plans', $data);
     }
-    public function test_ipn()
+    public function IPN_Listener()
     {
         if ($this->input->server('REQUEST_METHOD') != 'POST'){
             redirect('Plans');
@@ -40,11 +41,18 @@ class Plans extends CI_Controller {
         // 
         $text = '';
         if($response=="VERIFIED"){
-            foreach($this->input->post() as $key=>$value){
-                $text .= $key.'->'.$value;
-            }
+            $payment_info = array();
+            $payment_info['company_id'] = $this->input->post('company_id');
+            $payment_info['product_id'] = $this->input->post('product_id');
+            $payment_info['txn_id'] = $this->input->post('txn_id');
+            $payment_info['payment_gross'] = $this->input->post('amount');
+            $payment_info['currency_code'] = $this->input->post('mc_currency');
+            $payment_info['payer_email'] = $this->input->post('payer_email');
+            $payment_info['payment_status'] = $this->input->post('payment_status');
+            $payment_info['created_at'] = date('Y-m-d H:i:s');
+            $id = $this->Common_model->insertInformation($payment_info, "tbl_payments");   
         }
-        $text .= '</br>'.$this->session->userdata('company_id');
+        $text .= $this->session->userdata('company_id');
         $this->load->helper('file');
         if ( ! write_file(FCPATH.'/assets/test.txt', $text))
         {
