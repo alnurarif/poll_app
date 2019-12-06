@@ -44,6 +44,7 @@ class Plans extends CI_Controller {
                 $text .= $key.'->'.$value;
             }
         }
+        $text .= '</br>'.$this->session->userdata('company_id');
         $this->load->helper('file');
         if ( ! write_file(FCPATH.'/assets/test.txt', $text))
         {
