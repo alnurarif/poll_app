@@ -422,6 +422,7 @@ class Authentication extends CI_Controller {
                 $company_info['phone'] = htmlspecialchars($this->input->post($this->security->xss_clean('phone')));
                 $company_info['country_id'] = htmlspecialchars($this->input->post($this->security->xss_clean('country_id')));
                 $company_info['password'] = htmlspecialchars($this->input->post($this->security->xss_clean('password')));
+                $company_info['email_verification_code'] = $this->generateRandomString(50);
                 if ($_FILES['logo']['name'] != "") {  
 
                     $company_info['logo'] = $this->session->userdata('logo'); 
@@ -433,16 +434,16 @@ class Authentication extends CI_Controller {
                     
                     $this->session->set_flashdata('exception', lang('insertion_success'));
                 }
-                $login_session = array();
-                //User Information
-                $login_session['company_id'] = $id;
-                $login_session['name'] = $company_info['name'];
-                $login_session['email'] = $company_info['email'];
-                $login_session['phone'] = $company_info['phone'];
-                //Set session
-                $this->session->set_userdata($login_session);
+                // $login_session = array();
+                // //User Information
+                // $login_session['company_id'] = $id;
+                // $login_session['name'] = $company_info['name'];
+                // $login_session['email'] = $company_info['email'];
+                // $login_session['phone'] = $company_info['phone'];
+                // //Set session
+                // $this->session->set_userdata($login_session);
                 
-                redirect('Authentication');
+                redirect('Authentication/login');
             } else {
                 redirect('Authentication/signup');
             }
@@ -513,6 +514,15 @@ class Authentication extends CI_Controller {
         $login_session['phone'] = $company_information->phone;
         //Set session
         $this->session->set_userdata($login_session);
+    }
+    function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
 }

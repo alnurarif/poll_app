@@ -1,0 +1,631 @@
+/*
+  Theme Name: Name - Multipurpose HTML Template
+  Author: mdsalim400@gmail.com
+  Support: admin@gmail.com
+  Description: Creative  HTML5 template.
+  Version: 1.0
+*/
+
+/* CSS Index
+-----------------------------------
+1. Theme default css
+2. header
+3. slider
+4. about-area
+5. features-box
+6. department
+7. team
+8. video-area
+9. counter
+10. footer
+*/
+
+
+/* 1. Theme default css */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600,700');
+ body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+.navbar-brand{
+  color: #fff !important;
+}
+.img {
+	max-width: 100%;
+	transition: all 0.3s ease-out 0s;
+}
+.f-left {
+	float: left
+}
+.f-right {
+	float: right
+}
+.fix {
+	overflow: hidden
+}
+a,
+.button {
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+}
+a:focus,
+.button:focus {
+	text-decoration: none;
+	outline: none;
+}
+a:focus,
+a:hover,
+.portfolio-cat a:hover,
+.footer -menu li a:hover {
+	color: #2B96CC;
+	text-decoration: none;
+}
+body{
+	background: #f7f7f7;
+}
+a,
+button {
+	color: #000000;
+	outline: medium none;
+}
+button:focus,input:focus,input:focus,textarea,textarea:focus{outline: 0}
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Poppins', sans-serif;
+	font-weight: normal;
+	color: #313131;
+	margin-top: 0px;
+	font-style: normal;
+	font-weight: 400;
+	text-transform: normal;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+}
+h1 {
+	font-size: 40px;
+	font-weight: 500;
+}
+h2 {
+	font-size: 35px;
+}
+h3 {
+	font-size: 28px;
+}
+h4 {
+	font-size: 22px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
+}
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+li {
+	list-style: none
+}
+p {
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 24px;
+	color: #7e7e7e;
+	margin-bottom: 15px;
+}
+hr {
+	border-bottom: 1px solid #eceff8;
+	border-top: 0 none;
+	margin: 30px 0;
+	padding: 0;
+}
+label {
+	color: #7e7e7e;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 400;
+}
+*::-moz-selection {
+	background: #d6b161;
+	color: #fff;
+	text-shadow: none;
+}
+::-moz-selection {
+	background: #444;
+	color: #fff;
+	text-shadow: none;
+}
+::selection {
+	background: #444;
+	color: #fff;
+	text-shadow: none;
+}
+*::-moz-placeholder {
+	color: #555555;
+	font-size: 14px;
+	opacity: 1;
+}
+*::placeholder {
+	color: #555555;
+	font-size: 14px;
+	opacity: 1;
+}
+.theme-overlay {
+	position: relative
+}
+.theme-overlay::before {
+	background: #1696e7 none repeat scroll 0 0;
+	content: "";
+	height: 100%;
+	left: 0;
+	opacity: 0.6;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.separator {
+	border-top: 1px solid #f2f2f2
+}
+/* button style */
+
+.btn {
+	-moz-user-select: none;
+	background: #1696e7 none repeat scroll 0 0;
+	border: medium none;
+	border-radius: 2px;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	line-height: 1;
+	margin-bottom: 0;
+	padding: 13px 25px;
+	text-align: center;
+	text-transform: uppercase;
+	touch-action: manipulation;
+	transition: all 0.3s ease 0s;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.breadcrumb > .active {
+	color: #888;
+}
+.owl-carousel .owl-nav div {
+	background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0;
+	height: 40px;
+	left: 20px;
+	line-height: 40px;
+	opacity: 0;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: all 0.3s ease 0s;
+	visibility: hidden;
+	width: 40px;
+}
+.owl-carousel .owl-nav div.owl-next {
+	left: auto;
+	right: 20px;
+}
+.owl-carousel:hover .owl-nav div {
+	opacity: 1;
+	visibility: visible;
+}
+.owl-carousel .owl-nav div:hover {
+	background: #2B96CC;
+	color: #fff
+}
+
+/* scrollUp */
+#scrollUp {
+	background: #7DBA2F;
+	height: 35px;
+	width: 35px;
+	right: 50px;
+	bottom: 77px;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 50%;
+	font-size: 20px;
+	line-height: 34px;
+}
+#scrollUp:hover {
+	background: #444;
+}
+
+
+#header_section{
+	background: #000
+}
+.bg-light{
+	background: none !important;
+}
+.nav-item{
+	margin-right: 10px
+}
+.nav-item a{
+	color: #fff !important;
+}
+.navbar-nav a{
+	color: #fff !important;
+}
+table tr td i{
+	margin-right: 10px
+}
+.question{
+	background: #fff;
+	    padding-bottom: 51px;
+}
+.question_top input{
+	    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    padding: 32px;
+
+}
+/*.question_left{
+	float: ;left: 
+}
+.question_right{
+	float: right;
+}*/
+
+.left{
+	float: left;
+	width: 33%
+}
+
+
+
+
+    .textleft{
+        text-align: left;
+    }
+    .textright{
+        text-align: right;
+    }
+    .half{width:50%;}
+    .floatleft{
+        float:left;
+    }
+    .fix{overflow:hidden;}
+
+    
+    #handle2{
+        height:180px !important;
+        width:300px !important;
+    }
+    #pole_speedometer{
+        width:300px;
+    }
+    #handle2 .rs-handle  {
+        background-color: transparent;
+        border: 8px solid transparent;
+        /* border-right-color: black; */
+        margin: -14px 0 0 -14px !important;
+        background: url(https://www.pinclipart.com/picdir/middle/38-388919_computer-icons-user-profile-clip-art-avatar-user.png) no-repeat;
+        background-size: 30px;
+        height: 30px !important;
+        width: 30px !important;
+        background-position: -8px -8px;
+    }
+#handle2 .rs-container{
+    padding: 15px 0px;
+    height: 180px !important;
+    width: 300px !important;
+}
+#handle2 .rs-handle:before  {
+    display: block;
+    content: " ";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background: black;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 100%;
+}
+/*#handle2 .rs-handle:after  {
+    display: block;
+    content: " ";
+    width: 106px;
+    position: absolute;
+    top: -1px;
+    right: 0px;
+    border-top: 2px solid black;
+}*/
+#handle2 .rs-handle:after  {
+    display: block;
+    content: " ";
+    width: 106px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    /* border-top: 2px solid black; */
+    background: url(images/meter_indicator.png) no-repeat;
+    height: 30px;
+    background-size: 105px 30px;
+    }
+        #handle2 .rs-range-color  {
+            background-color: #C9C9C9;
+        }
+        #handle2 .rs-path-color  {
+            background-color: #C9C9C9;
+        }
+
+
+
+
+
+
+        .slidecontainer {
+  width: 50%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 30px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+
+
+
+
+#compass_hand {
+    background: url(images/clock_hand4.png) center center no-repeat;
+    width: 30px;
+    height: 235px;
+    position: absolute;
+    top: 30px;
+    left: 135px;
+    cursor: pointer;
+    background-size: 30px 235px;
+}
+#compass{
+    background: url(images/earth_compass3.jpg) no-repeat;
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+}
+
+
+#plain_slider_wrapper{
+    position:relative;
+}
+
+#plain_slider{
+
+}
+#plain_slider .first{padding-right:5px;}
+#plain_slider .second{width:400px;height: 60px;position: relative;}
+#plain_slider .third{padding-left:5px;}
+#plain_slider .first img,#plain_slider .third img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #989898;
+    margin-top: 0px;
+}
+#slide_line{
+    height: 8px;
+    width: 400px;
+    background: #000000;
+    border-radius: 30px;
+    top: 25px;
+    position: absolute;
+}
+#slider{
+    width: 525px;
+    height: 60px;
+}
+#slider .second img{
+    width: 50px;
+    position: absolute;
+    left: 0px;
+    cursor: pointer;
+    padding:5px 0px;
+        margin-top: 0px;
+}
+#slider_options{
+    width:525px;
+}
+#slider_options .left_space{height:50px;width:95px;}
+#slider_options .right_space{height:50px;width:95px;}
+#slider_options .left_option{
+    width: 140px;
+    font-size: 13px;
+    font-weight: bold;
+}
+#slider_options .right_option{
+    width: 140px;
+    margin: 0px 0px 0px 55px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.left img{
+	    margin-top: -124px;
+}
+.question_bottom{
+	    margin-top: 158px;
+}
+.poll:hover .hover_poll{
+
+
+
+}
+.hover_poll {
+    content: '';
+    position: absolute;
+    background: #fff;
+    padding: 9px 19px;
+    margin: 0px 0px 0px 0px;
+    width: 254%;
+    height: 100%;
+    z-index: 9999;
+    bottom: -51px;
+    left: -65px;
+}
+.hover_poll li{
+	display: inline-block;
+}
+.collapse ul li ul{
+  display: none;
+  position: absolute;
+}
+
+.collapse ul li :hover ul{
+  display: block;
+  z-index: 1000
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+  background: none;
+  border: none
+}
+.nav-tabs{
+      background: #000000;
+    margin-top: 43px;
+}
+.header_right{
+    margin-top: 42px;
+    float: right;
+}
+.header_right input{
+    border: navajowhite;
+    background: none;
+    border-bottom: 1px solid #666;
+}
+.dropdown button{
+      background: none;
+    color: #FC4236;
+    border: 1px solid #FC4236;
+}
+.dropdown button:after{
+  display: none;
+}
+.dropdown-menu a{
+  color: #0063A5 !important;
+}
+.spee_text{
+margin-top: -144px;
+    margin-left: -14px;
+}
+.question_top{
+      padding-top: 50px;
+    padding-bottom: 50px;
+}
+.poll_btn a{
+
+    border: 1px solid #bebebe;
+    color: #6a6a6a;
+    padding: 3px 13px;
+    cursor:pointer;
+}
+.poll_id{
+      margin-top: -62px;
+    margin-left: 27px !important;
+    margin-bottom: 20px
+}
+.poll_btn{
+  padding-bottom: 20px
+}
+.poll_id{
+  float: left;
+}
+.poll_btn{
+  float: right;
+}
+.poll_btn a:hover{
+  color: #FFB58B;
+  border : 1px solid #FFB58B;
+}
+.poll_btn a{
+      font-size: 13px;
+}

@@ -320,6 +320,7 @@
                       <td>
                         <p>Hi <?php echo $company->name; ?>,</p>
                         <p>To verify your account, please click below's link:</p>
+                        <p><a href="<?php echo base_url();?>Verification_email/verify_account/<?php echo $company->id; ?>/<?php echo $company->email_verification_code;?>">Click Here</a></p>
 <!--                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>

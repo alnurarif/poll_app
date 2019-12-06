@@ -20,7 +20,7 @@
 							</li>
 
 							<li class="nav-item active">
-								<a class="nav-link" href="#">Insight <span class="sr-only">(current)</span></a>
+								<a class="nav-link" href="<?php echo base_url(); ?>Insights">Insight <span class="sr-only">(current)</span></a>
 							</li>
 
 

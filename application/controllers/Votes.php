@@ -88,7 +88,7 @@ class Votes extends CI_Controller {
     //this is for development purpose to generate ip 
     public function updateVoteCountryBasedOnIp()
     {
-        dd();
+        // dd();
         $votes = $this->db->get('tbl_votes');
         $votes_result = $votes->result();
         // dd($votes_result);
@@ -123,7 +123,7 @@ class Votes extends CI_Controller {
     // this is for development purpose
     public function updateVoteCountryBasedOnPreviousRandomRecords()
     {
-        dd();
+        // dd();
         $this->db->select("*");
         $this->db->from('tbl_votes');
         $this->db->where('voted_from is not NULL', NULL, FALSE);

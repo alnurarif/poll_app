@@ -27,21 +27,26 @@ class Verification_email extends CI_Controller {
         $data = array();
         $data['company'] = $company = $this->Common_model->getDataById($id,'tbl_companies');
         
-        $message = $this->load->view('email/verification_email',$data,true);
+        
 
         $config = Array(
-            'protocol' => 'sendmail',
-            'mailpath' => '/usr/sbin/sendmail',
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'alnursarwer@gmail.com', // change it to yours
+            'smtp_pass' => 'alnur1989arif', // change it to yours
             'mailtype' => 'html',
-            'charset' => 'iso-8859-1',
+            'charset'  => 'utf-8',
             'wordwrap' => TRUE
         );
 
-        $this->load->library('email', $config);
+        $this->load->library('email');
+        $this->email->initialize($config);
         $this->email->set_newline("\r\n");
-        $this->email->from('alnursarwer@gmail.com'); // change it to yours
-        $this->email->to('alnurarif@yahoo.com');// change it to yours
+        $this->email->from('test@gmail.com'); // change it to yours
+        $this->email->to('test@yahoo.com');// change it to yours
         $this->email->subject('Verify Account');
+        $message = $this->load->view('email/verification_email',$data,true);
         $this->email->message($message);
         if($this->email->send()){
             $data['main_content'] = $this->load->view('verification_email/verification_mail_sent', $data, TRUE);
@@ -51,6 +56,20 @@ class Verification_email extends CI_Controller {
         }
         
           
+    }
+    public function verify_account($id,$email_verification_code){
+        $company = $this->Company_model->getByIdAndVerificationCode($id,$email_verification_code);
+        // echo $this->db->last_query();
+        // dd($company);
+        $data = array();
+        if($company){
+            $this->Company_model->verifyAccount($id);   
+            $data['main_content'] = $this->load->view('verification_email/verification_successfull', $data, TRUE);
+            $this->load->view('template/common_template', $data);
+        }else{
+            $data['main_content'] = $this->load->view('verification_email/verification_unsuccessfull', $data, TRUE);
+            $this->load->view('template/common_template', $data);
+        }
     }
 }
 ?>
