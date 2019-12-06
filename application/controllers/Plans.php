@@ -23,6 +23,20 @@ class Plans extends CI_Controller {
     }
     public function test_ipn()
     {
-        # code...
+        if ($this->input->server('REQUEST_METHOD') != 'POST'){
+            redirect('Plans');
+        }
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://ipnpb.sandbox.paypal.com/cgi-bin/webscr');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,0);
+        curl_setopt($ch, CURLOPT_POST,1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"cmd=_notify-validate".http_build_query($this->input->post()));
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        file_put_contents("test.txt", $response);
     }
 }
