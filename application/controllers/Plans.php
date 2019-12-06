@@ -32,7 +32,7 @@ class Plans extends CI_Controller {
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,0);
         curl_setopt($ch, CURLOPT_POST,1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,"cmd=_notify-validate".http_build_query($this->input->post()));
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"cmd=_notify-validate&".http_build_query($this->input->post()));
 
         $response = curl_exec($ch);
         curl_close($ch);
