@@ -64,7 +64,7 @@ class Poll_model extends CI_Model {
 		    WHEN TIME(v.created_at)>= TIME("00:00:00") AND TIME(v.created_at)<= TIME("04:59:00") THEN "Early Morning"
 		    ELSE "The quantity is under 30" 
 		END');
-		$this->db->order_by('p.id ASC,count(v.voted_from) DESC',);
+		$this->db->order_by('p.id ASC,count(v.voted_from) DESC');
 		$result = $this->db->get()->result(); 
 		return $result;		
     }
