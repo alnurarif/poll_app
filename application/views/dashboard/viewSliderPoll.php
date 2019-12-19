@@ -119,6 +119,7 @@
                         <input value="<?php echo  $poll->poll_id; ?>" type="text" name="poll_id" id="poll_id"  style="border: none;border-bottom: 1px solid #666;" disabled>
                     </div>
                     <div class="poll_btn">
+                        <a href="<?php echo base_url('Dashboard/editSliderPoll/').$poll->id;?>" style="background:#000;color:#fff;">Edit</a>
                         <a href="<?php echo base_url('Dashboard');?>" style="background:#000;color:#fff;">Dashboard</a>
                     </div>
                 </div>

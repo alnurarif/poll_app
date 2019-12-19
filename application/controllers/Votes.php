@@ -11,6 +11,8 @@ class Votes extends CI_Controller {
         $this->load->model('Poll_icons_model');
         $this->load->model('Poll_model');
         $this->load->model('Vote_model');
+        $this->load->model('Company_model');
+        $this->load->model('Galton_model');
     }
     public function giveVoteSpeedoMeter(){
         $rotation = $this->input->post('rotation');
@@ -31,6 +33,10 @@ class Votes extends CI_Controller {
         $data['mid'] = $this->Vote_model->getMidTypeVote($poll_id);
         $data['last'] = $this->Vote_model->getLastTypeVote($poll_id);
         $data['total_votes'] = $this->Vote_model->getVotesNumberByPollId($poll_id);
+        $data['company_info'] = $company_info = $this->Company_model->getCompanyInfoByPollId($poll_id);
+        if($company_info->package_id==2){
+            $data['galton_info'] = $this->Galton_model->calculate($data['total_votes']->total_votes);
+        }
         echo json_encode($data);
     }
     public function giveVoteCompass(){
@@ -55,7 +61,11 @@ class Votes extends CI_Controller {
         $data['fifth'] = $this->Vote_model->getFifthTypeVoteCompass($poll_id);
         $data['sixth'] = $this->Vote_model->getSixthTypeVoteCompass($poll_id);
         $data['total_votes'] = $this->Vote_model->getVotesNumberByPollId($poll_id);
-        
+        $data['company_info'] = $company_info = $this->Company_model->getCompanyInfoByPollId($poll_id);
+        if($company_info->package_id==2){
+            $data['galton_info'] = $this->Galton_model->calculate($data['total_votes']->total_votes);
+        }
+
         echo json_encode($data);   
     }
     public function giveVoteSlider(){
@@ -77,6 +87,10 @@ class Votes extends CI_Controller {
         $data['last'] = $this->Vote_model->getLastTypeSliderVote($poll_id);
         $data['total_votes'] = $this->Vote_model->getVotesNumberByPollId($poll_id);
         $data['all_percentages'] = $this->Vote_model->getAllPercentagesOfSliderPoll($poll_id);
+        $data['company_info'] = $company_info = $this->Company_model->getCompanyInfoByPollId($poll_id);
+        if($company_info->package_id==2){
+            $data['galton_info'] = $this->Galton_model->calculate($data['total_votes']->total_votes);
+        }
         echo json_encode($data);
     }
     public function votedFrom($ip){

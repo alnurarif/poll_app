@@ -26,7 +26,7 @@
         $i = 1;
         foreach ($poll_icons as $single_icon) {
             $image_position_array = explode(",",$single_icon->compass_icon_position);
-            $icons_show .= '<div class="compass_image_holder" style="top: '.$image_position_array[1].'px;left: '.$image_position_array[0].'px;"><img src="'.base_url().'assets/dashboard/img/user_icons/'.$single_icon->icon_file_name.'"></div>';
+            $icons_show .= '<div class="compass_image_holder"  id="compass_image_holder_'.$i.'" style="top: '.$image_position_array[1].'px;left: '.$image_position_array[0].'px;"><img class="compass_image" id="compass_image_'.$i.'" src="'.base_url().'assets/dashboard/img/user_icons/'.$single_icon->icon_file_name.'"></div>';
 
 
             ${$compass_icon_id_dynamic . $i} = $single_icon->icon_id;
@@ -40,7 +40,12 @@
 ?>
 
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/css/page_style/compass.css">
+<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/css/wheelcolorpicker.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/css/page_style/editCompass.css">
+<script src="<?php echo base_url(); ?>assets/dashboard/js/jquery-ui.js"></script>
+<script src="<?php echo base_url(); ?>assets/dashboard/js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/dashboard/js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/dashboard/js/jquery.wheelcolorpicker.min.js"></script>
 <?php if ($this->session->flashdata('exception')) { ?>
     <div class="container">
         
@@ -59,6 +64,7 @@
     <span id="embed_script" style="display:none"><iframe src="<?php echo base_url(); ?>Debates/singleDebate/<?php echo $poll->id;?>" width="700px" height="500px"><p>Your browser does not support iframes.</p></iframe></span>
     <span style="display:none;" id="clickedX"></span>
     <span style="display:none;" id="clickedY"></span>
+    <span style="display:none;" id="edit_icon_mode">0</span>
 	<!-- <svg viewBox="0 0 500 500">
 	  <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
 	  <text width="500">
@@ -92,7 +98,7 @@
                                           <div class="circTxt" id="test"></div>
                                         </div>    
                                         <?php echo $icons_show; ?>
-										<!-- <div id="compass_hand"></div> -->
+										<div id="compass_hand" style="display:none;"></div>
 									</div>
 								</div>
 							</div>
@@ -117,7 +123,10 @@
                             <div class="left">
                                 <input value="<?php echo  $poll->first_label; ?>" name="first_label" class="form-control compass_option" type="text" placeholder="First Label ..... " id="compass_option_1">
                             </div>
-                            <div class="left">&nbsp;
+                            <div class="left">
+                                <?php if($company->package_id == 1 || $company->package_id == 2 || $company->package_id == 4 || $company->package_id == 5) {?>
+                                <input value="<?php echo  $poll->indicator_color; ?>" name="indicator_color" class="form-control" type="text" placeholder="Indicator Color" style="text-align: left;" data-wheelcolorpicker />
+                                <?php }else{echo "&nbsp;";} ?>                                
                                 <!-- <img src="<?php echo base_url(); ?>assets/dashboard/img/download.png" style="margin-top: -179px;"> -->
                             </div>
                             <div class="left">
@@ -245,6 +254,27 @@
         </div>
         <div class="body">
           <p>There is a compass. When it's clicked for twice inside of the compass, modal is opened. You can select images for 5 times.</p>
+        </div>
+    </div>
+
+</div>
+<!-- end modal -->  
+
+<!-- The Modal -->
+<div id="compassImageOperationModal" class="modal" style="padding-top:20px;">
+
+    <!-- Modal content -->
+    <div class="modal-content" id="compassImageOperationModalContent">
+        <div class="close_modal_cross">
+          <i class="fas fa-times-circle"></i>
+        </div>
+        <div class="header">
+            <h1>Compass Image Operation</h1>
+        </div>
+        <div class="body">
+            <span id="icon_number_selected" style="display:none;"></span>
+            <button id="remove_this_icon">Remove This Icon</button>
+            <button id="change_this_icon">Change This Icon</button>
         </div>
     </div>
 

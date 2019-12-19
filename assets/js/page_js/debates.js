@@ -1,7 +1,9 @@
 var base_url = $('base').attr('data-base');
 $(document).ready(function () {
 	$('.single_debate').on('click',function(e){
+
 		e.preventDefault();
+		$('#galton_wrapper').hide();
 		var poll_id = $(this).attr('id').substr(14);
 		$('html, body').animate({
 	        scrollTop: $('#wrapper_poll').offset().top - 20 //#DIV_ID is an example. Use the id of your destination on the page
@@ -14,6 +16,8 @@ $(document).ready(function () {
 		var current_selected_poll_id = $('#selected_poll_id').html();
 		if($("#single_debate_"+current_selected_poll_id).next().length>0){
 			var next_poll_id = $("#single_debate_"+current_selected_poll_id).next().attr('id').substr(14);	
+			$('#galton_wrapper').hide();
+			$('#wrapper_poll').css('height','750px');
 			getPollInformation(next_poll_id);
 		}
 		
@@ -217,6 +221,9 @@ function run_speedo_meter_pointer(){
 			target.css('-webkit-transform', 'rotate(' + degrees + 'deg)');
 			target.css('-ms-transform', 'rotate(' + degrees + 'deg)');
 			target.css('transform', 'rotate(' + degrees + 'deg)');
+			$('#compass_hand2').css('-webkit-transform', 'rotate(' + degrees + 'deg)');
+			$('#compass_hand2').css('-ms-transform', 'rotate(' + degrees + 'deg)');
+			$('#compass_hand2').css('transform', 'rotate(' + degrees + 'deg)');
 			ui.position.top = target_top;
 			ui.position.left = target_left;
 		},
@@ -245,6 +252,7 @@ function vote_now(lastDegrees) {
         	var vote_mid_section = parseInt(response.mid);
         	var vote_last_section = parseInt(response.last);
         	var total_votes = parseInt(response.total_votes.total_votes);
+        	var company_info = response.company_info;
         	var vote_first_section_percentage = parseInt(Math.round((vote_first_section*100)/total_votes));
         	var vote_mid_section_percentage = parseInt(Math.round((vote_mid_section*100)/total_votes));
         	var vote_last_section_percentage = parseInt(Math.round((vote_last_section*100)/total_votes));
@@ -252,6 +260,34 @@ function vote_now(lastDegrees) {
         	$('#mid_vote_percentage_text').html(vote_mid_section_percentage);
         	$('#right_vote_percentage_text').html(vote_last_section_percentage);
         	$('.speedo_meter_vote_percentage_text').show();
+        	$('#wrapper_poll').css('height','750px');
+        	if(company_info.package_id=='2'){
+        		if(company_info.icon_file_name=="" ||company_info.icon_file_name==null){
+        			$('#galton_icon').attr('src', base_url+'assets/dashboard/img/profile_avatar.png');	
+        		}else{
+        			$('#galton_icon').attr('src', base_url+'assets/galton_board/img/user_icons/'+company_info.icon_file_name);
+        		}
+        		
+        		$('#galton svg').css('display','none').css('top','-7px');
+        		var galton_color = '#cfcfcf';
+        		if(company_info.galton_color=="" || company_info.galton_color==null){
+        			galton_color = '#cfcfcf';	
+        		}else{
+        			galton_color = '#'+company_info.galton_color;
+        		}
+        		$('#galton svg').css('display','block');
+        		
+        		$('html, body').animate({
+			        scrollTop: $('#wrapper_poll').offset().top + 600 //#DIV_ID is an example. Use the id of your destination on the page
+			    }, 'slow');
+
+        		setGalton(response.galton_info.last_galton_result_array,total_votes,galton_color);
+        		
+        		$('#galton .bar').css('background',galton_color);
+        		$('#wrapper_poll').css('height','1250px');
+        		
+        		
+        	}
         	$('#user_voted').html(total_votes);
         	// $('#image_after_voting').fadeIn('500');
  			// $('#image_after_voting #add_image').css('height','400px');
@@ -280,6 +316,7 @@ function vote_now_compass(lastDegrees) {
         	var vote_forth_section = parseInt(response.forth);
         	var vote_fifth_section = parseInt(response.fifth);
         	var vote_sixth_section = parseInt(response.sixth);
+        	var company_info = response.company_info;
         	var total_votes = parseInt(response.total_votes.total_votes);
         	var vote_first_section_percentage = parseInt(Math.round((vote_first_section*100)/total_votes));
         	var vote_second_section_percentage = parseInt(Math.round((vote_second_section*100)/total_votes));
@@ -295,6 +332,35 @@ function vote_now_compass(lastDegrees) {
         	$('#compass_vote_percentage_text_6').html(vote_sixth_section_percentage);
         	// $('#mid_vote_percentage_text').html(vote_mid_section_percentage);
         	// $('#right_vote_percentage_text').html(vote_last_section_percentage);
+        	$('#wrapper_poll').css('height','750px');
+        	if(company_info.package_id=='2'){
+        		if(company_info.icon_file_name=="" ||company_info.icon_file_name==null){
+        			$('#galton_icon').attr('src', base_url+'assets/dashboard/img/profile_avatar.png');	
+        		}else{
+        			$('#galton_icon').attr('src', base_url+'assets/galton_board/img/user_icons/'+company_info.icon_file_name);
+        		}
+        		
+        		$('#galton svg').css('display','none').css('top','-7px');
+        		var galton_color = '#cfcfcf';
+        		if(company_info.galton_color=="" || company_info.galton_color==null){
+        			galton_color = '#cfcfcf';	
+        		}else{
+        			galton_color = '#'+company_info.galton_color;
+        		}
+        		$('#galton svg').css('display','block');
+        		
+        		$('html, body').animate({
+			        scrollTop: $('#wrapper_poll').offset().top + 600 //#DIV_ID is an example. Use the id of your destination on the page
+			    }, 'slow');
+
+        		setGalton(response.galton_info.last_galton_result_array,total_votes,galton_color);
+        		
+        		$('#galton .bar').css('background',galton_color);
+        		$('#wrapper_poll').css('height','1250px');
+        		
+        		
+        	}
+
         	$('.compass_vote_percentage_text').show();
         	$('#user_voted').html(total_votes);
         	// $('#image_after_voting').fadeIn('500');
@@ -323,6 +389,7 @@ function vote_now_slider_poll(percentage) {
         	var vote_mid_section = parseInt(response.mid);
         	var vote_last_section = parseInt(response.last);
         	var total_votes = parseInt(response.total_votes.total_votes);
+        	var company_info = response.company_info;
         	var all_percentages = response.all_percentages;
         	var vote_first_section_percentage = parseInt(Math.round((vote_first_section*100)/total_votes));
         	var vote_mid_section_percentage = parseInt(Math.round((vote_mid_section*100)/total_votes));
@@ -335,6 +402,35 @@ function vote_now_slider_poll(percentage) {
         	$('.slider_percentage_text').show();
 
         	$('#user_voted').html(total_votes);
+        	$('#wrapper_poll').css('height','750px');
+        	if(company_info.package_id=='2'){
+        		if(company_info.icon_file_name=="" ||company_info.icon_file_name==null){
+        			$('#galton_icon').attr('src', base_url+'assets/dashboard/img/profile_avatar.png');	
+        		}else{
+        			$('#galton_icon').attr('src', base_url+'assets/galton_board/img/user_icons/'+company_info.icon_file_name);
+        		}
+        		
+        		$('#galton svg').css('display','none').css('top','-7px');
+        		var galton_color = '#cfcfcf';
+        		if(company_info.galton_color=="" || company_info.galton_color==null){
+        			galton_color = '#cfcfcf';	
+        		}else{
+        			galton_color = '#'+company_info.galton_color;
+        		}
+        		$('#galton svg').css('display','block');
+        		
+        		$('html, body').animate({
+			        scrollTop: $('#wrapper_poll').offset().top + 600 //#DIV_ID is an example. Use the id of your destination on the page
+			    }, 'slow');
+
+        		setGalton(response.galton_info.last_galton_result_array,total_votes,galton_color);
+        		
+        		$('#galton .bar').css('background',galton_color);
+        		$('#wrapper_poll').css('height','1250px');
+        		
+        		
+        	}
+
         	drawChart(vote_first_section_percentage,vote_mid_section_percentage,vote_last_section_percentage);
  			$('#piechart').fadeIn();
  			// drawLineGraphSliderPoll(all_percentages);
@@ -489,13 +585,18 @@ function getPollInformation(poll_id) {
 				circularText(poll.second_label, 175, 0, 90);
 				circularText(poll.third_label, 175, 0, 180);
 				circularText(poll.forth_label, 175, 0, 270);
-
+				if(poll.indicator_color == "" || poll.indicator_color == null){
+					$('#compass_indicator').css('fill','#c62d2d');	
+				}else{
+					$('#compass_indicator').css('fill','#'+poll.indicator_color);
+				}
+				
         		$('#compass_wrapper').show();
 
         	}
         	$('#user_voted').html(votes.total_votes);
 
-        	$('#wrapper_poll').css('height','700px');
+        	$('#wrapper_poll').css('height','750px');
         	// $('#wrapper_poll').fadeIn();
         	setTimeout(function(){ 
         		run_speedo_meter_pointer();
@@ -549,3 +650,69 @@ function circularText(txt, radius, classIndex, origin = 0) {
     });
 }
 
+function setGalton(galtonInfo,total_votes,drop_color) {
+	$('#galton_wrapper').show();
+	// $last_galton_result_array = $galton_info['last_galton_result_array'];
+	
+	// $galton_bar_height1 = ($last_galton_result_array[0]*100)/$galton_info['votes'];
+	// $galton_bar_height2 = ($last_galton_result_array[1]*100)/$galton_info['votes'];
+	// $galton_bar_height3 = ($last_galton_result_array[2]*100)/$galton_info['votes'];
+	// $galton_bar_height4 = ($last_galton_result_array[3]*100)/$galton_info['votes'];
+	// $galton_bar_height5 = ($last_galton_result_array[4]*100)/$galton_info['votes'];
+	// $galton_bar_height6 = ($last_galton_result_array[5]*100)/$galton_info['votes'];
+	// $galton_bar_height7 = ($last_galton_result_array[6]*100)/$galton_info['votes'];
+	// $galton_bar_height8 = ($last_galton_result_array[7]*100)/$galton_info['votes'];
+	// $galton_bar_height9 = ($last_galton_result_array[8]*100)/$galton_info['votes'];
+	// $galton_bar_height10 = ($last_galton_result_array[9]*100)/$galton_info['votes'];
+	// $galton_bar_height11 = ($last_galton_result_array[10]*100)/$galton_info['votes'];
+
+	var galton_bar_height1 = (parseInt(galtonInfo[0])*100)/parseInt(total_votes);
+	var galton_bar_height2 = (parseInt(galtonInfo[1])*100)/parseInt(total_votes);
+	var galton_bar_height3 = (parseInt(galtonInfo[2])*100)/parseInt(total_votes);
+	var galton_bar_height4 = (parseInt(galtonInfo[3])*100)/parseInt(total_votes);
+	var galton_bar_height5 = (parseInt(galtonInfo[4])*100)/parseInt(total_votes);
+	var galton_bar_height6 = (parseInt(galtonInfo[5])*100)/parseInt(total_votes);
+	var galton_bar_height7 = (parseInt(galtonInfo[6])*100)/parseInt(total_votes);
+	var galton_bar_height8 = (parseInt(galtonInfo[7])*100)/parseInt(total_votes);
+	var galton_bar_height9 = (parseInt(galtonInfo[8])*100)/parseInt(total_votes);
+	var galton_bar_height10 = (parseInt(galtonInfo[9])*100)/parseInt(total_votes);
+	var galton_bar_height11 = (parseInt(galtonInfo[10])*100)/parseInt(total_votes);
+	for(i=0;i<400;i++){
+
+		var image_left = Math.floor(Math.random() * 400) + 1;
+		
+		$('#galton').append('<svg width="5px" viewbox="0 0 30 42" style="left:'+image_left+'px"> <path fill="'+drop_color+'" stroke="'+drop_color+'" stroke-width="1.5"d="M15 3 Q16.5 6.8 25 18 A12.8 12.8 0 1 1 5 18 Q13.5 6.8 15 3z" /> </svg>'); 
+		// <path stroke-width="2.5" d="M15 3 Q16.5 6.8 25 148 A18.8 16.8 0 1 1 5 148 Q16.5 6.8 15 3z" />
+		// $('#galton').append('<img style="left:'+image_left+'px" src="'+base_url+'assets/dashboard/img/rain_drop_small.png" class="rain_drop"/>');
+		
+	}
+	// <path stroke-width="2.5" d="M15 3 Q16.5 6.8 25 148 A18.8 16.8 0 1 1 5 148 Q16.5 6.8 15 3z" />
+	
+	setTimeout(function(){ 
+		$('#galton_bar1').css('height',galton_bar_height1*2+'%')
+		$('#galton_bar2').css('height',galton_bar_height2*2+'%')
+		$('#galton_bar3').css('height',galton_bar_height3*2+'%')
+		$('#galton_bar4').css('height',galton_bar_height4*2+'%')
+		$('#galton_bar5').css('height',galton_bar_height5*2+'%')
+		$('#galton_bar6').css('height',galton_bar_height6*2+'%')
+		$('#galton_bar7').css('height',galton_bar_height7*2+'%')
+		$('#galton_bar8').css('height',galton_bar_height8*2+'%')
+		$('#galton_bar9').css('height',galton_bar_height9*2+'%')
+		$('#galton_bar10').css('height',galton_bar_height10*2+'%')
+		$('#galton_bar11').css('height',galton_bar_height11*2+'%')
+
+	}, 1500);
+
+
+	for (var i=0;i<=400;i++) {
+		(function(ind) {
+			setTimeout(function(){
+				$('#galton svg').eq(ind).css('top','400px');
+				// $('#galton .rain_drop').eq(ind).css('top','400px');
+			}, 10 * ind);
+		})(i);
+	}
+
+
+	console.log(galton_bar_height1, galton_bar_height2, galton_bar_height3, galton_bar_height4, galton_bar_height5, galton_bar_height6, galton_bar_height7, galton_bar_height8, galton_bar_height9, galton_bar_height10, galton_bar_height11);
+}

@@ -85,7 +85,7 @@
                             <div class="left">
                                 <div id="compass_wrapper2" style="position: relative;">
                                     <div id="compass2">
-                                        <div id="compass_hand2" style="background-color:<?php echo $indicator_color; ?>"></div>
+                                        <div id="compass_hand2" style="background-color:<?php echo $indicator_color; ?>;z-index: 100;"></div>
                                         <div id="speedo_meter_pointer_icon"></div>     
                                         <div class="icon_slider" id="icon_slider1" <?php echo $icon_slider_pointer_show1;?>><?php echo $icon_slider_image1; ?></div>     
                                         <div class="icon_slider" id="icon_slider2" <?php echo $icon_slider_pointer_show2;?>><?php echo $icon_slider_image2; ?></div>     
@@ -94,7 +94,7 @@
                                         <div id="mid_vote_percentage" class="speedo_meter_vote_percentage_text"><span id="mid_vote_percentage_text"><?php echo $mid_percentage; ?></span>%</div>
                                         <div id="right_vote_percentage" class="speedo_meter_vote_percentage_text"><span id="right_vote_percentage_text"><?php echo $last_percentage; ?></span>%</div>
                                     </div>
-                                    <div id="debate_between">
+                                    <div id="debate_between" style="z-index: 100; position:relative;">
                                         <div class="half floatleft"><p class="textleft"><?php echo  $poll->left_label; ?></p></div>
                                         <div class="half floatleft"><p class="textright"><?php echo  $poll->right_label; ?></p></div>
                                     </div>
@@ -123,6 +123,7 @@
                         <input value="<?php echo  $poll->poll_id; ?>" type="text" name="poll_id" id="poll_id"  style="border: none;border-bottom: 1px solid #666;" disabled>
                     </div>
                     <div class="poll_btn">
+                        <a href="<?php echo base_url('Dashboard/editSpeedoMeter/').$poll->id;?>" style="background:#000;color:#fff;">Edit</a>
                         <a href="<?php echo base_url('Dashboard');?>" style="background:#000;color:#fff;">Dashboard</a>
                     </div>
                 </div>
@@ -130,6 +131,10 @@
         </div>
     </div>
 </section>
+<script src="<?php echo base_url(); ?>assets/dashboard/js/jquery-ui.js"></script>
+<script src="<?php echo base_url(); ?>assets/dashboard/js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/dashboard/js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/dashboard/js/page_js/viewCompass.js"></script>
 <script type="text/javascript">
     
 </script>

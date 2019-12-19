@@ -52,6 +52,10 @@
         $fifth_percentage = round(($fifth * 100) / $total_votes);
         $sixth_percentage = round(($sixth * 100) / $total_votes);
     }
+    $indicator_color = '#cfcfcf';
+    if($poll->indicator_color!="" || $poll->indicator_color!=null){
+        $indicator_color = '#'.$poll->indicator_color;
+    }
 
     // <div class="compass_image_holder" style="top: 186px;left: 199.8125px;"><img src="http://localhost/poll_app/assets/dashboard/img/user_icons/1fcc59bf5113ec39937e9a4ecedc7182.jpg"></div>
 ?>
@@ -105,7 +109,11 @@
                                           <div class="circTxt" id="test"></div>
                                         </div>
                                         <?php echo $icons_show; ?>
-										<!-- <div id="compass_hand"></div> -->
+										<div id="compass_hand">
+                                            <svg height="210" width="30">
+                                                <path fill="<?php echo $indicator_color; ?>" stroke-width="1.5" d="M15 0 L25 105 A15 15 0 1 1 6 104 L5 105 0z" />                              
+                                            </svg>
+                                        </div>
                                         <div id="compass_vote_percentage_1" class="compass_vote_percentage_text"><span id="compass_vote_percentage_text_1"><?php echo $first_percentage;?></span>%</div>
                                         <div id="compass_vote_percentage_2" class="compass_vote_percentage_text"><span id="compass_vote_percentage_text_2"><?php echo $second_percentage;?></span>%</div>
                                         <div id="compass_vote_percentage_3" class="compass_vote_percentage_text"><span id="compass_vote_percentage_text_3"><?php echo $second_percentage;?></span>%</div>
@@ -163,6 +171,7 @@
                         <input disabled value="<?php echo  $poll->poll_id; ?>" type="text" name="poll_id" id="poll_id"  style="border: none;border-bottom: 1px solid #666;">
                     </div>
                     <div class="poll_btn">
+                        <a href="<?php echo base_url('Dashboard/editCompass/').$poll->id;?>" style="background:#000;color:#fff;">Edit</a>
                         <a href="<?php echo base_url('Dashboard');?>" style="background:#000;color:#fff;">Dashboard</a>
                     </div>
                 </div>
@@ -233,4 +242,8 @@
 
 </div>
 <!-- end add customer modal -->
+<!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/dashboard/js/page_js/viewCompass.js"></script> -->
+<script src="<?php echo base_url(); ?>assets/dashboard/js/jquery-ui.js"></script>
+<script src="<?php echo base_url(); ?>assets/dashboard/js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/dashboard/js/jquery.slimscroll.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/dashboard/js/page_js/editCompass.js"></script>

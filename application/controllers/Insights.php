@@ -15,12 +15,18 @@ class Insights extends CI_Controller {
         if (!$this->session->has_userdata('company_id')) {
             redirect('Authentication/index');
         } 
+        $company_id = $this->session->userdata('company_id');
+        $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 5){
+            redirect('Dashboard');
+        }
 
     }
     public function index($value=''){
-        $company_id = $this->session->userdata('company_id');
+        
         $data = array();
-
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
         $data['polls_responses'] = $this->Poll_model->getVotesOfPolls($company_id);
         $data['votes_from_countries_of_polls'] = $this->Poll_model->getCountriesOfPolls($company_id);
         $firstSecondIndexArray = $this->getOnlyFirstIndex($data['votes_from_countries_of_polls']);

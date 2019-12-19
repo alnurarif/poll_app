@@ -115,4 +115,17 @@ $(document).ready(function () {
 	$('#infoPollModal #infoPollModalContent .close_modal_cross').on('click',function(){
 		$('#infoPollModal').fadeOut();
 	});
+	$('#search_poll').on('keyup',function(){
+		var search_value = $(this).val().toLowerCase();
+		$(".dasboard_question_col").each(function(i) {
+			var question_date = $('.dashboard_date_col').eq(i).html();
+			var question = $(this).html().toLowerCase();
+			if(question.includes(search_value) || question_date.includes(search_value)){
+				$(this).parent().show();
+			}else{
+				$(this).parent().hide();
+			}    
+		});
+		
+	});
 });

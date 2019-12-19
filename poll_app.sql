@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2019 at 06:34 AM
+-- Generation Time: Dec 19, 2019 at 02:09 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -52,7 +52,7 @@ CREATE TABLE `tbl_companies` (
 --
 
 INSERT INTO `tbl_companies` (`id`, `name`, `email`, `phone`, `password`, `logo`, `email_verified`, `email_verification_code`, `bought_package`, `package_id`, `package_bought_at`, `package_bought_for_time`, `country_id`, `created_at`, `updated_at`, `is_active`) VALUES
-(1, 'Oval', 'oval@yahoo.com', '04938493999', '123456', '403d336bba3ec9a6d11579b04f20b962.jpg', 1, NULL, 0, NULL, NULL, NULL, 18, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1),
+(1, 'Oval', 'oval@yahoo.com', '04938493999', '123456', '403d336bba3ec9a6d11579b04f20b962.jpg', 1, NULL, 1, 5, NULL, NULL, 18, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1),
 (2, 'Enata', 'enata@yahoo.com', '01993938483', '1234567', '06c53e29c6c6be7e86d780867c77981a.png', 0, NULL, 0, NULL, NULL, NULL, 18, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1),
 (3, 'Hatil', 'hatil@yahoo.com', '049439895899', '123456', 'ab2fe94ca689d6102987700b0d424242.jpg', 1, NULL, 0, NULL, NULL, NULL, 18, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1),
 (4, 'Bahadur', 'bahadur@yahoo.com', '039483948399', '123456', '6deebac8e76e184c26cc827fc65889c3.jpg', 0, NULL, 0, NULL, NULL, NULL, 18, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1),
@@ -325,6 +325,26 @@ INSERT INTO `tbl_countries` (`id`, `code`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_galtons`
+--
+
+CREATE TABLE `tbl_galtons` (
+  `id` int(15) NOT NULL,
+  `galton_color` varchar(15) NOT NULL,
+  `icon_file_name` varchar(150) NOT NULL,
+  `company_id` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_galtons`
+--
+
+INSERT INTO `tbl_galtons` (`id`, `galton_color`, `icon_file_name`, `company_id`) VALUES
+(1, '7f7aff', 'f8b2db1ea5b878ae75a3caf4c749d847.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_icons`
 --
 
@@ -343,25 +363,27 @@ CREATE TABLE `tbl_icons` (
 --
 
 INSERT INTO `tbl_icons` (`id`, `icon_name`, `icon_detail`, `icon_file_name`, `company_id`, `created_at`, `updated_at`) VALUES
-(1, 'Leonardo DiCaprio', 'DiCaprio began his career by appearing in television commercials in the late 1980s. He next had recurring roles in various television series, such as the soap opera Santa Barbara and the sitcom Growing Pains. He debuted in his film career by starring as Josh in Critters 3 (1991).', '642fb136ec475b04126b8c5a6c7992ba.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'Sir Isaac Newton', 'PRS (25 December 1642 – 20 March 1726/27[a]) was an English mathematician, physicist, astronomer, theologian, and author (described in his own day as a &quot;natural philosopher&quot;) who is widely recognised as one of the most influential scientists of all time, and a key figure in the scientific revolution.', '700cacb1b3ed1abb30ff3be564ce7275.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'Albert Einstein', 'was born in Ulm, in the Kingdom of Württemberg in the German Empire, on 14 March 1879.[5] His parents were Hermann Einstein, a salesman and engineer, and Pauline Koch.', '5918a7a1d5898dee452beeacf2c1d1a7.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'Barak Obama', 'Barack Hussein Obama II is an American attorney and politician who served as the 44th president of the United States from 2009 to 2017. A member of the Democratic Party, he was the first African American to be elected to the presidency.', '1fcc59bf5113ec39937e9a4ecedc7182.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'Donald Trump', 'Donald John Trump is the 45th and current president of the United States. Before entering politics, he was a businessman and television personality.', 'c43804e569f457c7df69a0c0ec87c69c.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'Recep Tayyip Erdoğan', 'Recep Tayyip Erdoğan is a Turkish politician serving as President of Turkey since 2014. He previously served as Prime Minister of Turkey from 2003 to 2014 and as Mayor of Istanbul from 1994 to 1998.', 'f1f49a7fd106756abd2e67cb87a41959.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'Ilham Aliyev', 'Ilham Heydar oglu Aliyev is an Azerbaijani politician who is the fourth president of Azerbaijan, in office since 2003. He also functions as the Chairman of the New Azerbaijan Party and the head of the National Olympic Committee.', '11b8944783d0f4212d3d8cba0637179c.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'Xi Jinping', 'Xi Jinping is a Chinese politician serving as General Secretary of the Communist Party of China, President of the People\'s Republic of China, and Chairman of the Central Military Commission.', '0f56313dccb3e3b9691e52f38909994a.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 'Moon Jae-in', 'Moon Jae-in is a South Korean politician serving as President of South Korea since 2017. He was elected after the impeachment of Park Geun-hye as the candidate of the Democratic Party of Korea.', 'faf22b0dec666e4d3e3396ef6effff33.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 'Idriss Déby', 'General Idriss Déby Itno is a Chadian politician who has been the President of Chad since 1990. He is also head of the Patriotic Salvation Movement. Déby is of the Bidyat clan of the Zaghawa ethnic group.', '49c4ca80762321cf36bf86d6cc150f86.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(11, 'Robert John Downey Jr.', 'Robert John Downey Jr. is an American actor, producer and singer. His career has been characterized by critical and popular notoriety in his youth, followed by a period of substance abuse and legal troubles, before a resumption of critical repute and resurgence of commercial success in middle age.', '5dd4cb28228742125f5ba35851956aaf.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 'Thomas Jeffrey Hanks', 'Thomas Jeffrey Hanks is an American actor and filmmaker. Hanks is known for his comedic and dramatic roles in such films as Splash, Big, Turner &amp; Hooch, A League of Their Own, Sleepless in Seattle', '32d6662683a4e74ef0824ae4fc707cda.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(13, 'Thomas Cruise', 'Thomas Cruise is an American actor and film producer. He has received several accolades for his work, including three Golden Globe Awards and nominations for three Academy Awards.', '6b2d091e6f957e5d29772dd67cc0b43b.png', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(14, 'John Christopher Depp II', 'John Christopher Depp II is an American actor, producer, and musician. He has been nominated for 10 Golden Globe Awards, winning one for Best Actor for his performance of the title role in Sweeney Todd', 'efffd1f0d7aa5c1c95710f6e847a8b10.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(15, 'Matthew Paige Damon', 'Matthew Paige Damon is an American actor, film producer and screenwriter. He is ranked among Forbes magazine\'s most bankable stars and is one of the highest-grossing actors of all time.', '8d021512097f8132a5c2697b7c93c98e.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1, 'Leonardo DiCaprio', 'DiCaprio began his career by appearing in television commercials in the late 1980s. He next had recurring roles in various television series, such as the soap opera Santa Barbara and the sitcom Growing Pains. He debuted in his film career by starring as Josh in Critters 3 (1991).', '642fb136ec475b04126b8c5a6c7992ba.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Sir Isaac Newton', 'PRS (25 December 1642 – 20 March 1726/27[a]) was an English mathematician, physicist, astronomer, theologian, and author (described in his own day as a &quot;natural philosopher&quot;) who is widely recognised as one of the most influential scientists of all time, and a key figure in the scientific revolution.', '700cacb1b3ed1abb30ff3be564ce7275.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Albert Einstein', 'was born in Ulm, in the Kingdom of Württemberg in the German Empire, on 14 March 1879.[5] His parents were Hermann Einstein, a salesman and engineer, and Pauline Koch.', '5918a7a1d5898dee452beeacf2c1d1a7.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'Barak Obama', 'Barack Hussein Obama II is an American attorney and politician who served as the 44th president of the United States from 2009 to 2017. A member of the Democratic Party, he was the first African American to be elected to the presidency.', '1fcc59bf5113ec39937e9a4ecedc7182.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'Donald Trump', 'Donald John Trump is the 45th and current president of the United States. Before entering politics, he was a businessman and television personality.', 'c43804e569f457c7df69a0c0ec87c69c.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'Recep Tayyip Erdoğan', 'Recep Tayyip Erdoğan is a Turkish politician serving as President of Turkey since 2014. He previously served as Prime Minister of Turkey from 2003 to 2014 and as Mayor of Istanbul from 1994 to 1998.', 'f1f49a7fd106756abd2e67cb87a41959.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'Ilham Aliyev', 'Ilham Heydar oglu Aliyev is an Azerbaijani politician who is the fourth president of Azerbaijan, in office since 2003. He also functions as the Chairman of the New Azerbaijan Party and the head of the National Olympic Committee.', '11b8944783d0f4212d3d8cba0637179c.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 'Xi Jinping', 'Xi Jinping is a Chinese politician serving as General Secretary of the Communist Party of China, President of the People\'s Republic of China, and Chairman of the Central Military Commission.', '0f56313dccb3e3b9691e52f38909994a.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 'Moon Jae-in', 'Moon Jae-in is a South Korean politician serving as President of South Korea since 2017. He was elected after the impeachment of Park Geun-hye as the candidate of the Democratic Party of Korea.', 'faf22b0dec666e4d3e3396ef6effff33.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 'Idriss Déby', 'General Idriss Déby Itno is a Chadian politician who has been the President of Chad since 1990. He is also head of the Patriotic Salvation Movement. Déby is of the Bidyat clan of the Zaghawa ethnic group.', '49c4ca80762321cf36bf86d6cc150f86.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 'Robert John Downey Jr.', 'Robert John Downey Jr. is an American actor, producer and singer. His career has been characterized by critical and popular notoriety in his youth, followed by a period of substance abuse and legal troubles, before a resumption of critical repute and resurgence of commercial success in middle age.', '5dd4cb28228742125f5ba35851956aaf.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, 'Thomas Jeffrey Hanks', 'Thomas Jeffrey Hanks is an American actor and filmmaker. Hanks is known for his comedic and dramatic roles in such films as Splash, Big, Turner &amp; Hooch, A League of Their Own, Sleepless in Seattle', '32d6662683a4e74ef0824ae4fc707cda.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(13, 'Thomas Cruise', 'Thomas Cruise is an American actor and film producer. He has received several accolades for his work, including three Golden Globe Awards and nominations for three Academy Awards.', '6b2d091e6f957e5d29772dd67cc0b43b.png', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(14, 'John Christopher Depp II', 'John Christopher Depp II is an American actor, producer, and musician. He has been nominated for 10 Golden Globe Awards, winning one for Best Actor for his performance of the title role in Sweeney Todd', 'efffd1f0d7aa5c1c95710f6e847a8b10.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(15, 'Matthew Paige Damon', 'Matthew Paige Damon is an American actor, film producer and screenwriter. He is ranked among Forbes magazine\'s most bankable stars and is one of the highest-grossing actors of all time.', '8d021512097f8132a5c2697b7c93c98e.jpg', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (16, 'William Bradley Pitt', 'William Bradley Pitt is an American actor and film producer. He has received multiple awards and nominations including an Academy Award as producer under his own company, Plan B Entertainment. Pitt first gained recognition as a cowboy hitchhiker in the road movie Thelma &amp; Louise.', 'a4d136e39575af2769a2cb045b472196.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (17, 'Dwayne Douglas Johnson', 'Dwayne Douglas Johnson, also known by his ring name The Rock, is an American actor, producer, and former professional wrestler. Johnson was a professional wrestler for the World Wrestling Federation for eight years prior to pursuing an acting career.', '9523d25a4b54f4560270c10482a70e80.jpg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (18, 'Maxi', '', 'f62d92f0130de62a3055656156c17698.jpg', 0, '2019-10-19 01:14:36', '2019-10-19 01:14:36'),
-(19, 'Food', '', '547bddebca9123ef50b942a662094cb2.jpg', 0, '2019-11-16 07:22:25', '2019-11-16 07:22:25');
+(19, 'Food', '', '547bddebca9123ef50b942a662094cb2.jpg', 0, '2019-11-16 07:22:25', '2019-11-16 07:22:25'),
+(20, 'Harry Potter', 'He is harry potter', '685f0292f50222b4c9dc87d56803c96a.jpg', 1, '2019-12-18 19:31:55', '2019-12-18 19:31:55'),
+(21, 'Cristian Bale Desc', 'Cristian Bale Desc', '3df0b8b7d91fbe3745d4f3fcb70fc02c.jpg', 1, '2019-12-18 19:34:28', '2019-12-18 19:34:28');
 
 -- --------------------------------------------------------
 
@@ -414,7 +436,7 @@ INSERT INTO `tbl_polls` (`id`, `question`, `left_label`, `right_label`, `poll_id
 (2, 'Within 2030 world will be more warmerssss', 'Yess', 'Noo', 'within-2030-world-will-be-more-warmerssss', 'Slider', NULL, NULL, NULL, NULL, NULL, 1, '2019-10-13 22:22:15', '2019-10-13 22:22:15', 'Live'),
 (3, 'Share market will fall down within next 3 month', 'Yes', 'No', 'share-market-will-fall-down-within-next-3-month', 'Speedo Meter', NULL, NULL, NULL, NULL, NULL, 1, '2019-10-10 01:46:16', '2019-10-10 01:46:16', 'Live'),
 (8, 'Japan will suffer from a typhoon', 'Yes', 'No', 'japan-will-suffer-from-a-typhone-', 'Speedo Meter', NULL, NULL, NULL, NULL, NULL, 1, '2019-10-13 23:15:14', '2019-10-13 23:15:14', 'Live'),
-(10, 'Hello Compass', NULL, NULL, 'hello-compass', 'Compass', 'first', 'second', 'third_label', 'forth', NULL, 1, '2019-10-14 22:45:52', '2019-10-14 22:45:52', 'Live'),
+(10, 'Hello Compass', NULL, NULL, 'hello-compass', 'Compass', 'first', 'second', 'third_label', 'forth', NULL, 1, '2019-12-15 19:08:36', '2019-12-15 19:08:36', 'Live'),
 (11, 'Most of Indians support Narendra Modi?', 'Yes', 'No', 'narendra-modi-vote', 'Speedo Meter', NULL, NULL, NULL, NULL, '29fffc', 1, '2019-11-13 06:04:30', '2019-11-13 06:04:30', 'Live'),
 (12, 'Who is going to win in table tenniss?', 'Ma Lin', 'Ma long', 'who-is-going-to-win-in-table-tenniss?', 'Slider', NULL, NULL, NULL, NULL, NULL, 1, '2019-10-16 00:46:10', '2019-10-16 00:46:10', 'Live'),
 (13, 'Hello Compass', NULL, NULL, 'hello-compass', 'Compass', 'first', 'second', 'third_label', 'forth', NULL, 1, '2019-10-20 00:54:49', '2019-10-20 00:54:49', 'Live'),
@@ -424,8 +446,12 @@ INSERT INTO `tbl_polls` (`id`, `question`, `left_label`, `right_label`, `poll_id
 (17, 'Test Speedo poll', 'Left', 'Right', 'test-speedo-poll', 'Speedo Meter', NULL, NULL, NULL, NULL, 'fffc29', 2, '2019-10-24 19:58:40', '2019-10-24 19:58:40', 'Live'),
 (18, 'This is Compass Question', NULL, NULL, 'this-is-compass-question', 'Compass', 'Compass Option option 1', 'Compass Option option 2', 'Compass Option option 3', 'Compass Option option 4', NULL, 1, '2019-11-02 10:26:31', '2019-11-02 10:26:31', 'Live'),
 (19, 'Most of Indians support Narendra Modi?', 'Yes', 'No', 'narendra-modi-vote', 'Speedo Meter', NULL, NULL, NULL, NULL, '29fffc', 1, '2019-11-13 06:06:13', '2019-11-13 06:06:13', 'Live'),
-(20, 'This is Compass Question 2', NULL, NULL, 'this-is-compass-question-2', 'Compass', 'Compass Option option 1', 'Compass Option option 2', 'Compass Option option 3', 'Compass Option option 4', NULL, 1, '2019-11-13 06:50:12', '2019-11-13 06:50:12', 'Live'),
-(21, 'Who is going to win in table tenniss 2?', 'Ma Lin', 'Ma long', 'who-is-going-to-win-in-table-tenniss-2?', 'Slider', NULL, NULL, NULL, NULL, NULL, 1, '2019-11-16 07:22:59', '2019-11-16 07:22:59', 'Live');
+(20, 'This is Compass Question 2', NULL, NULL, 'this-is-compass-question-2', 'Compass', 'Compass Option option 1', 'Compass Option option 2', 'Compass Option option 3', 'Compass Option option 4', NULL, 1, '2019-12-18 07:15:21', '2019-12-18 07:15:21', 'Live'),
+(21, 'Who is going to win in table tenniss 2?', 'Ma Lin', 'Ma long', 'who-is-going-to-win-in-table-tenniss-2?', 'Slider', NULL, NULL, NULL, NULL, NULL, 1, '2019-11-16 07:22:59', '2019-11-16 07:22:59', 'Live'),
+(22, 'Test Question 11', 'Yes', 'No', 'test-question-11', 'Speedo Meter', NULL, NULL, NULL, NULL, '53ff46', 1, '2019-12-18 19:44:54', '2019-12-18 19:44:54', 'Live'),
+(23, 'Test Compass Question', NULL, NULL, 'test-compass-question', 'Compass', 'First Label', 'Second Sabel', 'Third Label', 'Forth Label', '4939f5', 1, '2019-12-18 18:41:07', '2019-12-18 18:41:07', 'Live'),
+(24, 'Is tomorrow going to be rainy day?', NULL, NULL, 'is-tomorrow-4848', 'Compass', 'May be', 'Yes', 'No', 'May be no', '51ff4c', 1, '2019-12-18 18:57:04', '2019-12-18 18:57:04', 'Live'),
+(25, 'Who\'s going to win on the war?', 'Harry', 'Bale', 'who\'s-going-to-win-on-the-war?', 'Slider', NULL, NULL, NULL, NULL, NULL, 1, '2019-12-18 19:35:15', '2019-12-18 19:35:15', 'Live');
 
 -- --------------------------------------------------------
 
@@ -469,7 +495,19 @@ INSERT INTO `tbl_poll_icons` (`id`, `icon_id`, `icon_rotation`, `description`, `
 (63, 15, NULL, '', NULL, '176,250', 18, '2019-11-02 10:26:31', '2019-11-02 10:26:31'),
 (64, 11, NULL, '', NULL, '152,116', 18, '2019-11-02 10:26:31', '2019-11-02 10:26:31'),
 (67, 17, NULL, '', 'Left', NULL, 21, '2019-11-16 07:23:00', '2019-11-16 07:23:00'),
-(68, 19, NULL, 'Testy Food', 'Right', NULL, 21, '2019-11-16 07:23:00', '2019-11-16 07:23:00');
+(68, 19, NULL, 'Testy Food', 'Right', NULL, 21, '2019-11-16 07:23:00', '2019-11-16 07:23:00'),
+(77, 10, NULL, 'idriss desc 1', NULL, '162,114', 10, '2019-12-15 19:08:36', '2019-12-15 19:08:36'),
+(78, 7, NULL, 'ilham desc3', NULL, '148,206', 10, '2019-12-15 19:08:36', '2019-12-15 19:08:36'),
+(79, 16, NULL, 'William Desc', NULL, '212,132', 10, '2019-12-15 19:08:36', '2019-12-15 19:08:36'),
+(80, 9, NULL, '', NULL, '177,124', 20, '2019-12-18 07:15:22', '2019-12-18 07:15:22'),
+(81, 3, NULL, '', NULL, '140,202', 20, '2019-12-18 07:15:22', '2019-12-18 07:15:22'),
+(82, 4, NULL, '', NULL, '232,167', 20, '2019-12-18 07:15:22', '2019-12-18 07:15:22'),
+(83, 10, NULL, '', NULL, '215,133', 24, '2019-12-18 18:57:04', '2019-12-18 18:57:04'),
+(84, 2, NULL, '', NULL, '103,137', 24, '2019-12-18 18:57:04', '2019-12-18 18:57:04'),
+(85, 20, NULL, 'It\'s Harry', 'Left', NULL, 25, '2019-12-18 19:35:15', '2019-12-18 19:35:15'),
+(86, 21, NULL, 'Cristian Bale Desc', 'Right', NULL, 25, '2019-12-18 19:35:15', '2019-12-18 19:35:15'),
+(87, 4, '57.92808329948768', '', NULL, NULL, 22, '2019-12-18 19:44:54', '2019-12-18 19:44:54'),
+(88, 3, '-66.66110547796791', '', NULL, NULL, 22, '2019-12-18 19:44:54', '2019-12-18 19:44:54');
 
 -- --------------------------------------------------------
 
@@ -1392,7 +1430,139 @@ INSERT INTO `tbl_votes` (`id`, `poll_id`, `mac_info`, `ip_info`, `rotation`, `pe
 (990, 19, NULL, '133.85.250.227', '-11.445613341795273', NULL, 'Speedo Meter', 'JP', '2019-11-13 07:33:29', '2019-11-13 07:33:29'),
 (991, 19, NULL, '82.28.101.228', '5.132097059456719', NULL, 'Speedo Meter', 'GB', '2019-11-13 07:33:30', '2019-11-13 07:33:30'),
 (992, 19, NULL, '122.84.146.121', '17.773261529611453', NULL, 'Speedo Meter', 'CN', '2019-11-13 07:33:31', '2019-11-13 07:33:31'),
-(993, 19, NULL, '82.104.99.225', '75.52722638359455', NULL, 'Speedo Meter', 'IT', '2019-11-13 07:33:33', '2019-11-13 07:33:33');
+(993, 19, NULL, '82.104.99.225', '75.52722638359455', NULL, 'Speedo Meter', 'IT', '2019-11-13 07:33:33', '2019-11-13 07:33:33'),
+(994, 22, NULL, '::1', '38.42049089281935', NULL, 'Speedo Meter', NULL, '2019-12-10 06:41:06', '2019-12-10 06:41:06'),
+(995, 21, NULL, '::1', NULL, '39.7142', 'Speedo Meter', NULL, '2019-12-11 05:40:21', '2019-12-11 05:40:21'),
+(996, 22, NULL, '::1', '19.762592398884294', NULL, 'Speedo Meter', NULL, '2019-12-12 19:26:09', '2019-12-12 19:26:09'),
+(997, 22, NULL, '::1', '45.85553473267217', NULL, 'Speedo Meter', NULL, '2019-12-18 04:39:32', '2019-12-18 04:39:32'),
+(998, 19, NULL, '::1', '34.75126395963064', NULL, 'Speedo Meter', NULL, '2019-12-18 04:46:57', '2019-12-18 04:46:57'),
+(999, 19, NULL, '::1', '61.13994346134375', NULL, 'Speedo Meter', NULL, '2019-12-18 04:47:00', '2019-12-18 04:47:00'),
+(1000, 19, NULL, '::1', '-33.73196670672037', NULL, 'Speedo Meter', NULL, '2019-12-18 04:47:01', '2019-12-18 04:47:01'),
+(1001, 19, NULL, '::1', '11.077365845647407', NULL, 'Speedo Meter', NULL, '2019-12-18 04:47:03', '2019-12-18 04:47:03'),
+(1002, 19, NULL, '::1', '31.219028632334627', NULL, 'Speedo Meter', NULL, '2019-12-18 04:47:12', '2019-12-18 04:47:12'),
+(1003, 19, NULL, '::1', '51.56356258027527', NULL, 'Speedo Meter', NULL, '2019-12-18 04:47:18', '2019-12-18 04:47:18'),
+(1004, 19, NULL, '::1', '3.0247729808804706', NULL, 'Speedo Meter', NULL, '2019-12-18 04:47:24', '2019-12-18 04:47:24'),
+(1005, 18, NULL, '::1', '89', NULL, 'Compass', NULL, '2019-12-18 04:47:35', '2019-12-18 04:47:35'),
+(1006, 22, NULL, '::1', '56.28686101887577', NULL, 'Speedo Meter', NULL, '2019-12-18 07:09:11', '2019-12-18 07:09:11'),
+(1007, 22, NULL, '::1', '-58.07421859560117', NULL, 'Speedo Meter', NULL, '2019-12-18 07:09:18', '2019-12-18 07:09:18'),
+(1008, 8, NULL, '::1', '36.74916155489541', NULL, 'Speedo Meter', NULL, '2019-12-18 07:16:25', '2019-12-18 07:16:25'),
+(1009, 8, NULL, '::1', '51.540757268696126', NULL, 'Speedo Meter', NULL, '2019-12-18 07:39:28', '2019-12-18 07:39:28'),
+(1010, 10, NULL, '::1', '108', NULL, 'Compass', NULL, '2019-12-18 07:41:00', '2019-12-18 07:41:00'),
+(1011, 22, NULL, '::1', '-9.895943454122133', NULL, 'Speedo Meter', NULL, '2019-12-18 08:15:18', '2019-12-18 08:15:18'),
+(1012, 22, NULL, '::1', '317.5549197593571', NULL, 'Speedo Meter', NULL, '2019-12-18 08:16:47', '2019-12-18 08:16:47'),
+(1013, 22, NULL, '::1', '-40.30168913543588', NULL, 'Speedo Meter', NULL, '2019-12-18 08:16:50', '2019-12-18 08:16:50'),
+(1014, 22, NULL, '::1', '-46.168271304965515', NULL, 'Speedo Meter', NULL, '2019-12-18 08:16:53', '2019-12-18 08:16:53'),
+(1015, 22, NULL, '::1', '-49.733374680733476', NULL, 'Speedo Meter', NULL, '2019-12-18 08:16:54', '2019-12-18 08:16:54'),
+(1016, 22, NULL, '::1', '-52.791419983608876', NULL, 'Speedo Meter', NULL, '2019-12-18 08:16:56', '2019-12-18 08:16:56'),
+(1017, 22, NULL, '::1', '-56.88752980900941', NULL, 'Speedo Meter', NULL, '2019-12-18 08:16:57', '2019-12-18 08:16:57'),
+(1018, 22, NULL, '::1', '-59.8534463672801', NULL, 'Speedo Meter', NULL, '2019-12-18 08:16:59', '2019-12-18 08:16:59'),
+(1019, 22, NULL, '::1', '-63.08588495682005', NULL, 'Speedo Meter', NULL, '2019-12-18 08:17:04', '2019-12-18 08:17:04'),
+(1020, 23, NULL, '::1', '73', NULL, 'Compass', NULL, '2019-12-18 09:02:29', '2019-12-18 09:02:29'),
+(1021, 23, NULL, '::1', '100', NULL, 'Compass', NULL, '2019-12-18 09:05:18', '2019-12-18 09:05:18'),
+(1022, 23, NULL, '::1', '178', NULL, 'Compass', NULL, '2019-12-18 09:05:57', '2019-12-18 09:05:57'),
+(1023, 14, NULL, '::1', '66', NULL, 'Compass', NULL, '2019-12-18 19:09:37', '2019-12-18 19:09:37'),
+(1024, 14, NULL, '::1', '147', NULL, 'Compass', NULL, '2019-12-18 19:09:40', '2019-12-18 19:09:40'),
+(1025, 14, NULL, '::1', '207', NULL, 'Compass', NULL, '2019-12-18 19:09:42', '2019-12-18 19:09:42'),
+(1026, 14, NULL, '::1', '276', NULL, 'Compass', NULL, '2019-12-18 19:09:46', '2019-12-18 19:09:46'),
+(1027, 14, NULL, '::1', '329', NULL, 'Compass', NULL, '2019-12-18 19:09:49', '2019-12-18 19:09:49'),
+(1028, 15, NULL, '::1', '22.69516259790508', NULL, 'Speedo Meter', NULL, '2019-12-19 06:07:39', '2019-12-19 06:07:39'),
+(1029, 14, NULL, '::1', '91', NULL, 'Compass', NULL, '2019-12-19 06:08:21', '2019-12-19 06:08:21'),
+(1030, 24, NULL, '::1', '77', NULL, 'Compass', NULL, '2019-12-19 06:15:03', '2019-12-19 06:15:03'),
+(1031, 24, NULL, '::1', '313', NULL, 'Compass', NULL, '2019-12-19 06:15:49', '2019-12-19 06:15:49'),
+(1032, 24, NULL, '::1', '286', NULL, 'Compass', NULL, '2019-12-19 07:04:03', '2019-12-19 07:04:03'),
+(1033, 16, NULL, '::1', '1', NULL, 'Compass', NULL, '2019-12-19 07:05:14', '2019-12-19 07:05:14'),
+(1034, 15, NULL, '::1', '18.804418097606288', NULL, 'Speedo Meter', NULL, '2019-12-19 07:05:34', '2019-12-19 07:05:34'),
+(1035, 14, NULL, '::1', '312', NULL, 'Compass', NULL, '2019-12-19 07:05:55', '2019-12-19 07:05:55'),
+(1036, 14, NULL, '::1', '265', NULL, 'Compass', NULL, '2019-12-19 07:06:30', '2019-12-19 07:06:30'),
+(1037, 25, NULL, '::1', NULL, '22.5714', 'Speedo Meter', NULL, '2019-12-19 07:09:39', '2019-12-19 07:09:39'),
+(1038, 25, NULL, '::1', NULL, '29.4285', 'Speedo Meter', NULL, '2019-12-19 07:10:00', '2019-12-19 07:10:00'),
+(1039, 25, NULL, '::1', NULL, '18.5714', 'Speedo Meter', NULL, '2019-12-19 07:11:37', '2019-12-19 07:11:37'),
+(1040, 24, NULL, '::1', '45', NULL, 'Compass', NULL, '2019-12-19 07:12:03', '2019-12-19 07:12:03'),
+(1041, 22, NULL, '::1', '34.358508645569124', NULL, 'Speedo Meter', NULL, '2019-12-19 07:53:42', '2019-12-19 07:53:42'),
+(1042, 22, NULL, '::1', '-34.95395052801767', NULL, 'Speedo Meter', NULL, '2019-12-19 07:54:19', '2019-12-19 07:54:19'),
+(1043, 22, NULL, '::1', '-22.3134652822541', NULL, 'Speedo Meter', NULL, '2019-12-19 07:56:58', '2019-12-19 07:56:58'),
+(1044, 22, NULL, '::1', '-37.573657040989545', NULL, 'Speedo Meter', NULL, '2019-12-19 07:58:13', '2019-12-19 07:58:13'),
+(1045, 22, NULL, '::1', '-38.33003067024005', NULL, 'Speedo Meter', NULL, '2019-12-19 08:01:42', '2019-12-19 08:01:42'),
+(1046, 22, NULL, '::1', '-33.52235913829378', NULL, 'Speedo Meter', NULL, '2019-12-19 08:13:56', '2019-12-19 08:13:56'),
+(1047, 22, NULL, '::1', '43.733565438527336', NULL, 'Speedo Meter', NULL, '2019-12-19 08:16:38', '2019-12-19 08:16:38'),
+(1048, 19, NULL, '::1', '-17.8623110731984', NULL, 'Speedo Meter', NULL, '2019-12-19 08:19:16', '2019-12-19 08:19:16'),
+(1049, 11, NULL, '::1', '-18.771336973990614', NULL, 'Speedo Meter', NULL, '2019-12-19 08:20:30', '2019-12-19 08:20:30'),
+(1050, 8, NULL, '::1', '17.843519177765486', NULL, 'Speedo Meter', NULL, '2019-12-19 08:20:39', '2019-12-19 08:20:39'),
+(1051, 8, NULL, '::1', '29.055260214838455', NULL, 'Speedo Meter', NULL, '2019-12-19 08:20:43', '2019-12-19 08:20:43'),
+(1052, 3, NULL, '::1', '-13.205894761996653', NULL, 'Speedo Meter', NULL, '2019-12-19 08:20:49', '2019-12-19 08:20:49'),
+(1053, 11, NULL, '::1', '33.19987098276779', NULL, 'Speedo Meter', NULL, '2019-12-19 08:28:38', '2019-12-19 08:28:38'),
+(1054, 3, NULL, '::1', '-19.96518683401341', NULL, 'Speedo Meter', NULL, '2019-12-19 08:31:04', '2019-12-19 08:31:04'),
+(1055, 3, NULL, '::1', '23.119169844390342', NULL, 'Speedo Meter', NULL, '2019-12-19 09:13:54', '2019-12-19 09:13:54'),
+(1056, 1, NULL, '::1', '-27.42244834081248', NULL, 'Speedo Meter', NULL, '2019-12-19 09:15:19', '2019-12-19 09:15:19'),
+(1057, 3, NULL, '::1', '51.26248511491153', NULL, 'Speedo Meter', NULL, '2019-12-19 09:15:43', '2019-12-19 09:15:43'),
+(1058, 3, NULL, '::1', '42.02242944532303', NULL, 'Speedo Meter', NULL, '2019-12-19 09:16:00', '2019-12-19 09:16:00'),
+(1059, 3, NULL, '::1', '-0.01855433209527746', NULL, 'Speedo Meter', NULL, '2019-12-19 09:29:40', '2019-12-19 09:29:40'),
+(1060, 3, NULL, '::1', '43.10604071643365', NULL, 'Speedo Meter', NULL, '2019-12-19 09:29:41', '2019-12-19 09:29:41'),
+(1061, 3, NULL, '::1', '-27.823583058639187', NULL, 'Speedo Meter', NULL, '2019-12-19 09:32:42', '2019-12-19 09:32:42'),
+(1062, 3, NULL, '::1', '25.726035206472062', NULL, 'Speedo Meter', NULL, '2019-12-19 09:38:32', '2019-12-19 09:38:32'),
+(1063, 3, NULL, '::1', '-32.5107728706308', NULL, 'Speedo Meter', NULL, '2019-12-19 09:40:38', '2019-12-19 09:40:38'),
+(1064, 3, NULL, '::1', '31.33689618218468', NULL, 'Speedo Meter', NULL, '2019-12-19 09:43:22', '2019-12-19 09:43:22'),
+(1065, 3, NULL, '::1', '52.911505152926956', NULL, 'Speedo Meter', NULL, '2019-12-19 09:43:32', '2019-12-19 09:43:32'),
+(1066, 3, NULL, '::1', '24.077651903044796', NULL, 'Speedo Meter', NULL, '2019-12-19 09:43:44', '2019-12-19 09:43:44'),
+(1067, 3, NULL, '::1', '6.476307864052416', NULL, 'Speedo Meter', NULL, '2019-12-19 09:44:44', '2019-12-19 09:44:44'),
+(1068, 3, NULL, '::1', '43.54269176956658', NULL, 'Speedo Meter', NULL, '2019-12-19 09:46:01', '2019-12-19 09:46:01'),
+(1069, 3, NULL, '::1', '57.94864217796899', NULL, 'Speedo Meter', NULL, '2019-12-19 09:46:10', '2019-12-19 09:46:10'),
+(1070, 3, NULL, '::1', '40.204894482798004', NULL, 'Speedo Meter', NULL, '2019-12-19 09:46:17', '2019-12-19 09:46:17'),
+(1071, 3, NULL, '::1', '-45.26550217520909', NULL, 'Speedo Meter', NULL, '2019-12-19 09:48:44', '2019-12-19 09:48:44'),
+(1072, 11, NULL, '::1', '-24.381786548200395', NULL, 'Speedo Meter', NULL, '2019-12-19 09:49:24', '2019-12-19 09:49:24'),
+(1073, 11, NULL, '::1', '8.055649683929147', NULL, 'Speedo Meter', NULL, '2019-12-19 09:49:45', '2019-12-19 09:49:45'),
+(1074, 11, NULL, '::1', '24.00802630777134', NULL, 'Speedo Meter', NULL, '2019-12-19 09:50:00', '2019-12-19 09:50:00'),
+(1075, 11, NULL, '::1', '36.51861102777557', NULL, 'Speedo Meter', NULL, '2019-12-19 09:50:20', '2019-12-19 09:50:20'),
+(1076, 11, NULL, '::1', '-22.729616271093903', NULL, 'Speedo Meter', NULL, '2019-12-19 09:50:32', '2019-12-19 09:50:32'),
+(1077, 11, NULL, '::1', '-36.110343045150614', NULL, 'Speedo Meter', NULL, '2019-12-19 09:50:51', '2019-12-19 09:50:51'),
+(1078, 11, NULL, '::1', '-51.327421799267626', NULL, 'Speedo Meter', NULL, '2019-12-19 09:51:05', '2019-12-19 09:51:05'),
+(1079, 3, NULL, '::1', '7.278665711315398', NULL, 'Speedo Meter', NULL, '2019-12-19 09:51:22', '2019-12-19 09:51:22'),
+(1080, 3, NULL, '::1', '-14.215990469826686', NULL, 'Speedo Meter', NULL, '2019-12-19 09:52:40', '2019-12-19 09:52:40'),
+(1081, 3, NULL, '::1', '-52.77885993476919', NULL, 'Speedo Meter', NULL, '2019-12-19 10:00:41', '2019-12-19 10:00:41'),
+(1082, 22, NULL, '::1', '20.245387956093197', NULL, 'Speedo Meter', NULL, '2019-12-19 10:03:12', '2019-12-19 10:03:12'),
+(1083, 21, NULL, '::1', NULL, '28.5714', 'Speedo Meter', NULL, '2019-12-19 10:03:34', '2019-12-19 10:03:34'),
+(1084, 20, NULL, '::1', '47', NULL, 'Compass', NULL, '2019-12-19 10:05:06', '2019-12-19 10:05:06'),
+(1085, 23, NULL, '::1', '41', NULL, 'Compass', NULL, '2019-12-19 10:05:59', '2019-12-19 10:05:59'),
+(1086, 16, NULL, '::1', '307', NULL, 'Compass', NULL, '2019-12-19 10:07:07', '2019-12-19 10:07:07'),
+(1087, 16, NULL, '::1', '68', NULL, 'Compass', NULL, '2019-12-19 10:07:21', '2019-12-19 10:07:21'),
+(1088, 15, NULL, '::1', '19.275721159390457', NULL, 'Speedo Meter', NULL, '2019-12-19 10:07:32', '2019-12-19 10:07:32'),
+(1089, 14, NULL, '::1', '20', NULL, 'Compass', NULL, '2019-12-19 10:07:49', '2019-12-19 10:07:49'),
+(1090, 23, NULL, '::1', '318', NULL, 'Compass', NULL, '2019-12-19 10:09:20', '2019-12-19 10:09:20'),
+(1091, 23, NULL, '::1', '315', NULL, 'Compass', NULL, '2019-12-19 10:10:15', '2019-12-19 10:10:15'),
+(1092, 22, NULL, '::1', '13.217722323268632', NULL, 'Speedo Meter', NULL, '2019-12-19 10:10:27', '2019-12-19 10:10:27'),
+(1093, 21, NULL, '::1', NULL, '23.4285', 'Speedo Meter', NULL, '2019-12-19 10:10:47', '2019-12-19 10:10:47'),
+(1094, 23, NULL, '::1', '229', NULL, 'Compass', NULL, '2019-12-19 10:12:19', '2019-12-19 10:12:19'),
+(1095, 23, NULL, '::1', '296', NULL, 'Compass', NULL, '2019-12-19 10:12:34', '2019-12-19 10:12:34'),
+(1096, 23, NULL, '::1', '28', NULL, 'Compass', NULL, '2019-12-19 10:12:45', '2019-12-19 10:12:45'),
+(1097, 22, NULL, '::1', '30.440190453496143', NULL, 'Speedo Meter', NULL, '2019-12-19 10:13:00', '2019-12-19 10:13:00'),
+(1098, 21, NULL, '::1', NULL, '7.14285', 'Speedo Meter', NULL, '2019-12-19 10:13:19', '2019-12-19 10:13:19'),
+(1099, 20, NULL, '::1', '53', NULL, 'Compass', NULL, '2019-12-19 10:18:24', '2019-12-19 10:18:24'),
+(1100, 3, NULL, '::1', '20.13962718671833', NULL, 'Speedo Meter', NULL, '2019-12-19 10:19:11', '2019-12-19 10:19:11'),
+(1101, 2, NULL, '::1', NULL, '12.8571', 'Speedo Meter', NULL, '2019-12-19 10:19:32', '2019-12-19 10:19:32'),
+(1102, 8, NULL, '::1', '-38.09598960899091', NULL, 'Speedo Meter', NULL, '2019-12-19 10:19:46', '2019-12-19 10:19:46'),
+(1103, 14, NULL, '::1', '334', NULL, 'Compass', NULL, '2019-12-19 10:20:58', '2019-12-19 10:20:58'),
+(1104, 13, NULL, '::1', '27', NULL, 'Compass', NULL, '2019-12-19 10:21:23', '2019-12-19 10:21:23'),
+(1105, 12, NULL, '::1', NULL, '16.8571', 'Speedo Meter', NULL, '2019-12-19 10:21:35', '2019-12-19 10:21:35'),
+(1106, 11, NULL, '::1', '8.681016836206311', NULL, 'Speedo Meter', NULL, '2019-12-19 10:21:55', '2019-12-19 10:21:55'),
+(1107, 25, NULL, '::1', NULL, '15.7142', 'Speedo Meter', NULL, '2019-12-19 10:28:08', '2019-12-19 10:28:08'),
+(1108, 25, NULL, '::1', NULL, '34.8571', 'Speedo Meter', NULL, '2019-12-19 10:28:25', '2019-12-19 10:28:25'),
+(1109, 25, NULL, '::1', NULL, '59.1428', 'Speedo Meter', NULL, '2019-12-19 10:28:35', '2019-12-19 10:28:35'),
+(1110, 25, NULL, '::1', NULL, '74.5714', 'Speedo Meter', NULL, '2019-12-19 10:28:45', '2019-12-19 10:28:45'),
+(1111, 25, NULL, '::1', NULL, '85.1428', 'Speedo Meter', NULL, '2019-12-19 10:28:56', '2019-12-19 10:28:56'),
+(1112, 25, NULL, '::1', NULL, '56.5714', 'Speedo Meter', NULL, '2019-12-19 10:29:06', '2019-12-19 10:29:06'),
+(1113, 25, NULL, '::1', NULL, '26', 'Speedo Meter', NULL, '2019-12-19 10:29:17', '2019-12-19 10:29:17'),
+(1114, 24, NULL, '::1', '233', NULL, 'Compass', NULL, '2019-12-19 10:29:36', '2019-12-19 10:29:36'),
+(1115, 22, NULL, '::1', '13.344564222710062', NULL, 'Speedo Meter', NULL, '2019-12-19 10:30:01', '2019-12-19 10:30:01'),
+(1116, 21, NULL, '::1', NULL, '15.7142', 'Speedo Meter', NULL, '2019-12-19 10:30:15', '2019-12-19 10:30:15'),
+(1117, 20, NULL, '::1', '295', NULL, 'Compass', NULL, '2019-12-19 10:30:31', '2019-12-19 10:30:31'),
+(1118, 16, NULL, '::1', '3', NULL, 'Compass', NULL, '2019-12-19 10:30:54', '2019-12-19 10:30:54'),
+(1119, 16, NULL, '::1', '31', NULL, 'Compass', NULL, '2019-12-19 10:31:29', '2019-12-19 10:31:29'),
+(1120, 15, NULL, '::1', '-29.05930789014289', NULL, 'Speedo Meter', NULL, '2019-12-19 10:31:37', '2019-12-19 10:31:37'),
+(1121, 14, NULL, '::1', '10', NULL, 'Compass', NULL, '2019-12-19 10:31:47', '2019-12-19 10:31:47'),
+(1122, 16, NULL, '::1', '299', NULL, 'Compass', NULL, '2019-12-19 10:32:05', '2019-12-19 10:32:05'),
+(1123, 16, NULL, '::1', '230', NULL, 'Compass', NULL, '2019-12-19 10:32:10', '2019-12-19 10:32:10'),
+(1124, 16, NULL, '::1', '198', NULL, 'Compass', NULL, '2019-12-19 10:32:13', '2019-12-19 10:32:13'),
+(1125, 16, NULL, '::1', '270', NULL, 'Compass', NULL, '2019-12-19 12:12:20', '2019-12-19 12:12:20');
 
 --
 -- Indexes for dumped tables
@@ -1408,6 +1578,12 @@ ALTER TABLE `tbl_companies`
 -- Indexes for table `tbl_countries`
 --
 ALTER TABLE `tbl_countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_galtons`
+--
+ALTER TABLE `tbl_galtons`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1457,10 +1633,16 @@ ALTER TABLE `tbl_countries`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
 
 --
+-- AUTO_INCREMENT for table `tbl_galtons`
+--
+ALTER TABLE `tbl_galtons`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tbl_icons`
 --
 ALTER TABLE `tbl_icons`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tbl_payments`
@@ -1472,19 +1654,19 @@ ALTER TABLE `tbl_payments`
 -- AUTO_INCREMENT for table `tbl_polls`
 --
 ALTER TABLE `tbl_polls`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tbl_poll_icons`
 --
 ALTER TABLE `tbl_poll_icons`
-  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `tbl_votes`
 --
 ALTER TABLE `tbl_votes`
-  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=994;
+  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1126;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

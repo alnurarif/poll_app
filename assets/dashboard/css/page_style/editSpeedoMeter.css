@@ -4,6 +4,11 @@
 .textleft{text-align: left;}
 .textrightt{text-align: right;}
 .half{width:50%;}
+
+*:focus {
+    outline: none;
+}
+
 #compass2{
     background: url(../../img/circle_border.png) no-repeat;
     width: 300px;
@@ -305,6 +310,7 @@
 
 .speedo_meter_vote_percentage_text{
     /*display:none;*/
+    z-index: 101;
 }
 
 

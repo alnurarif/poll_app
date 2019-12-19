@@ -10,4 +10,11 @@ class Poll_icons_model extends CI_Model {
 		$result = $this->db->get()->result(); 
 		return $result;  
     }
+    public function getAllIconsByCompanyId($company_id){
+    	$this->db->select("*");
+        $this->db->from('tbl_icons');
+        $this->db->where('company_id',$company_id);
+        $this->db->order_by('id', 'DESC');
+        return $this->db->get()->result();
+    }
 }

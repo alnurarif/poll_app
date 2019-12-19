@@ -65,13 +65,13 @@
 }
 
 
-#helpPollModal{
+#helpPollModal,#compassImageOperationModal{
     padding-top: 100px !important;
 }
-#helpPollModalContent{
+#helpPollModalContent,#compassImageOperationModalContent{
     width: 450px;
 }
-#helpPollModal #helpPollModalContent .close_modal_cross{
+#helpPollModal #helpPollModalContent .close_modal_cross,#compassImageOperationModal #compassImageOperationModalContent .close_modal_cross{
     position: absolute;
     top: 0px;
     right: 4px;
@@ -90,7 +90,14 @@
 .help_header_section .arrow_up{display:none;cursor:pointer;}
 .help_header_section .arrow_down{cursor:pointer;}
 
-
+#compassImageOperationModalContent .body button{
+    border: 1px solid #000000;
+    background: #000000;
+    color: #fff;
+    cursor: pointer;
+    padding: 3px 15px;
+    border-radius: 3px;
+}
 
 
 #addIconsToSpeedoMeterSection{

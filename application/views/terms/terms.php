@@ -32,9 +32,20 @@
 	<section id="privacy_policy">
 		<div class="container">
 			<div class="row">
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-8">
+					<a href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+				</div>
+				<div class="col-md-2">
+					
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-12">
 										<div class="top_logo text-center" style="padding-bottom: 50px">
-						<a href="index.html"><img src="<?php echo base_url(); ?>assets/terms_and_privacy_policy/images/sspng.png" style="width: 70px"></a>
+						<a href="index.html"><img src="<?php echo base_url(); ?>assets/img/cropped-Tiger-logo.png" style="width: 70px"></a>
 					</div>
 				</div>
 			</div>

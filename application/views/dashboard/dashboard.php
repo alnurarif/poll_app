@@ -18,9 +18,9 @@ if(count($polls)>0){
     }
     $polls_to_show .= '<tr>';
       $polls_to_show .= '<th scope="row">'.$poll_icon.'</th>';
-      $polls_to_show .= '<td>'.$poll->question.'</td>';
+      $polls_to_show .= '<td class="dasboard_question_col">'.$poll->question.'</td>';
       $polls_to_show .= '<td>Independent</td>';
-      $polls_to_show .= '<td>'.date('d.m.Y',strtotime($poll->created_at)).'</td>';
+      $polls_to_show .= '<td class="dashboard_date_col">'.date('d.m.Y',strtotime($poll->created_at)).'</td>';
       $polls_to_show .= '<td>';
         $polls_to_show .= '<a href="'.base_url($view_link).'"><i class="fas fa-eye"></i></a>';
         $polls_to_show .= '<a href="'.base_url($edit_link).'"><i class="fas fa-edit"></i></a>';
@@ -42,21 +42,36 @@ if(count($polls)>0){
 
                <div class="container"> 
                     <div class="row"> 
-                        <div class="col-md-6"> 
+                        <div class="col-md-9"> 
                             <div class="header_left"> 
                               <ul class="nav nav-tabs">
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                   <a class="nav-link active" href="#recomanded">Viewpointb Recommended</a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                   <a class="nav-link" href="">All Polls</a>
                                 </li>
+                                <?php if($company->package_id == 2 || $company->package_id == 5) {?>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#">Questionnaire link</a>
+                                </li>
+                                <?php } ?>
+                                <?php if($company->package_id == 1 || $company->package_id == 2 || $company->package_id == 4 || $company->package_id == 5 ) {?>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#">Rate Card Optimizer</a>
+                                </li>
+                                <?php } ?>
+                                <?php if($company->package_id == 2 || $company->package_id == 5) {?>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="<?php echo base_url(); ?>Galton_board">Galton Board</a>
+                                </li>
+                                <?php } ?>
                               </ul>
                             </div>
                         </div>
-                        <div class="col-md-6"> 
+                        <div class="col-md-3"> 
                           <div class="header_right">
-                            <input type="text" name="" placeholder="Type To Search">
+                            <input type="text" name="search_poll" id="search_poll" placeholder="Type Quetion Name & Date">
                           </div>
                         </div>
                     </div>

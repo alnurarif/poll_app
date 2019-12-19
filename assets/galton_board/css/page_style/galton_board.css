@@ -1,0 +1,52 @@
+.fix{overflow:hidden;}
+.floatleft{float:left;}
+.floatright{float:right;}
+.textleft{text-align: left;}
+.textrightt{text-align: right;}
+.half{width:50%;}
+#galton_wrapper{
+	overflow: hidden;
+	margin: 40px 0px 0px 0px;	
+	width: 100%;	
+}
+#galton{
+	width:400px;
+	height: 400px;
+	background : #fff;	
+	position:relative;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+#galton svg{
+	position:absolute;top:-7px;transition: top 1.5s linear;		
+}
+#galton_bar1{right:360px;}
+#galton_bar2{right:325px;}
+#galton_bar3{right:290px;}
+#galton_bar4{right:255px;}
+#galton_bar5{right:220px;}
+#galton_bar6{right:185px;}
+#galton_bar7{right:150px;}
+#galton_bar8{right:115px;}
+#galton_bar9{right:80px;}
+#galton_bar10{right:45px;}
+#galton_bar11{right:10px;}
+
+.rain_drop{width:5px;position:absolute;top:-7px;transition: top 1.5s linear;}
+
+.edit_section{
+	margin:20px 0px 40px 0px;
+}
+#galton_icon{
+	width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #cfcfcf;
+	
+}
+.galton_icon_section{
+	width:400px;
+	margin:10px auto;
+	text-align:center;
+}

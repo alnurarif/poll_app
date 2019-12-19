@@ -1,5 +1,39 @@
 var base_url = $('base').attr('data-base');
 $(document).ready(function () {
+    $(document).on('click','.compass_image_holder',function(){
+        var icon_number_selected = $(this).attr('id').substr(21);
+        $('#icon_number_selected').html(icon_number_selected);
+
+        $('#compassImageOperationModal').fadeIn();
+    });
+    $('#change_this_icon').on('click',function(){
+        var icon_number_selected = $('#icon_number_selected').html();
+        $('#compassImageOperationModal').fadeOut();
+        $('#edit_icon_mode').html(1);
+        getIcons();
+    });
+    $('#remove_this_icon').on('click',function(){
+        var icon_number_selected = $('#icon_number_selected').html();
+        $('#compass_image_holder_'+icon_number_selected).remove();
+        
+        $(".compass_image_holder").each(function(i) {
+            var j = i+1;
+            $(this).children().attr('id','compass_image_'+j);
+            $(this).attr('id','compass_image_holder_'+j);
+
+        });
+
+        for(k = icon_number_selected; k<=4; k++){
+            
+            var l = parseInt(k)+1;
+            console.log(k,l);
+            $('#icon_description'+k).val($('#icon_description'+l).val());
+            $('#compass_icon_id_input'+k).val($('#compass_icon_id_input'+l).val());
+            $('#compass_icon_position'+k).val($('#compass_icon_position'+l).val());
+
+        }
+        $('#compassImageOperationModal').fadeOut();
+    });
 	$('#compass').on('dblclick',function(e){
 		var $this = $(this);
 		var offset = $this.offset();
@@ -89,6 +123,7 @@ $(document).ready(function () {
     });
     $('#icon_save_cancel').on('click',function(e){
         e.preventDefault();
+        $('#edit_icon_mode').html(0);
         $('#addIconsToSpeedoMeterSection').fadeOut();
         resetUpdateIconForm();
     });
@@ -135,12 +170,25 @@ $(document).ready(function () {
         var icon_id = $('#icon_id_slide_pointer').html();
         var icon_object = searchIconById(icon_id, 'id', window.icons);
 
+        var is_edit_mode = $('#edit_icon_mode').html();
+        if(is_edit_mode == '1'){
+            var icon_number_selected = $('#icon_number_selected').html();
+            $('#compass_image_'+icon_number_selected).attr('src',base_url+'assets/dashboard/img/user_icons/'+icon_object.icon_file_name);
+            $('#edit_icon_mode').html(0);
+            $('#compass_icon_id_input'+icon_number_selected).val(icon_id);
+            $('#icon_description'+icon_number_selected).val(icon_description);
+            $('#addIconsToSpeedoMeterSection').fadeOut();
+            return false;
+        }
+
         var clickedX = $('#clickedX').html();
         var clickedY = $('#clickedY').html();
 		
 		var compass_icon_number = 0;
 
-		$('#compass').append('<div class="compass_image_holder" style="top: '+clickedY+'px;left: '+clickedX+'px;"><img src="'+base_url+'assets/dashboard/img/user_icons/'+icon_object.icon_file_name+'"/></div>')
+        compass_icon_number = $('.compass_image_holder').length;
+        compass_icon_number++;
+		$('#compass').append('<div class="compass_image_holder"  id="compass_image_holder_'+compass_icon_number+'" style="top: '+clickedY+'px;left: '+clickedX+'px;"><img class="compass_image" id="compass_image_'+compass_icon_number+'" src="'+base_url+'assets/dashboard/img/user_icons/'+icon_object.icon_file_name+'"/></div>');
 		// $('#slider_get_icon'+slide_pointer_id+' img').attr('src',base_url+'assets/dashboard/img/user_icons/'+icon_object.icon_file_name);		
 		compass_icon_number = $('.compass_image_holder').length;
 
@@ -156,6 +204,61 @@ $(document).ready(function () {
     		text = text.slice(0,(text.length - 1));
     		$(this).val(text);
     	}
+    });
+
+    var target = $('#compass_hand'),
+    originX = target.offset().left + target.width() / 2,
+    originY = target.offset().top + target.height() / 2,
+    dragging = false,
+    startingDegrees = 0,
+    lastDegrees = 0,
+    currentDegrees = 0,
+    target_left = parseInt(target.css('left'), 10),target_top = parseInt(target.css('top'), 10);
+
+
+    $(target).draggable(
+    {   
+        start: function(e){
+
+            dragging = true;
+
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+            radians = Math.atan2(mouseY - originY, mouseX - originX),
+            startingDegrees = radians * (180 / Math.PI);
+
+        }, 
+        drag: function(e,ui){
+            var data = target.data( 'circle' ); 
+
+            var mouseX, mouseY, radians, degrees;
+
+            if (!dragging) {
+                return;
+            }
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+            radians = Math.atan2(mouseY - originY, mouseX - originX),
+            degrees = radians * (180 / Math.PI) - startingDegrees + lastDegrees;
+
+            currentDegrees = degrees;
+            target.css('-webkit-transform', 'rotate(' + degrees + 'deg)');
+            target.css('-ms-transform', 'rotate(' + degrees + 'deg)');
+            target.css('transform', 'rotate(' + degrees + 'deg)');
+            ui.position.top = target_top;
+            ui.position.left = target_left;
+        },
+        stop: function(e,ui){
+            lastDegrees = currentDegrees;
+            dragging = false;
+            // vote_now_compass(lastDegrees);
+        }
+    });
+    $('#previous_icons').slimscroll({
+        height: '410px',
+        width: '100%',
+    }).parent().css({
+        border: '0px solid #184055'
     });
 });
 function getIcons() {

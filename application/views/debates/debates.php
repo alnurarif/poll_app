@@ -102,7 +102,11 @@
                           <div class="circTxt" id="test"></div>
                         </div>
                         <?php //echo $icons_show; ?>
-                        <div id="compass_hand"></div>
+                        <div id="compass_hand">
+                          <svg height="210" width="30">
+                              <path id="compass_indicator" fill="#c62d2d" stroke-width="1.5" d="M15 0 L25 105 A15 15 0 1 1 6 104 L5 105 0z" />                              
+                          </svg>
+                        </div>
                         <div id="compass_vote_percentage_1" class="compass_vote_percentage_text"><span id="compass_vote_percentage_text_1">36</span>%</div>
                         <div id="compass_vote_percentage_2" class="compass_vote_percentage_text"><span id="compass_vote_percentage_text_2">36</span>%</div>
                         <div id="compass_vote_percentage_3" class="compass_vote_percentage_text"><span id="compass_vote_percentage_text_3">36</span>%</div>
@@ -150,13 +154,32 @@
                     </div>
                   </div>
                   <div id="company_logo_very_small">
+                    <a href="<?php echo base_url(); ?>Dashboard" class="debate_create_now_button">Create Now</a>
                     <img src="<?php echo base_url();?>assets/img/cropped-Tiger-logo.png">
                     <img id="information_icon" src="<?php echo base_url();?>assets/img/information_icon.png">
                   </div>
                     
                 </div>  
               </div>
-              
+              <div id="galton_wrapper">
+                <div class="galton_icon_section">
+                  <img src="<?php echo base_url()."assets/dashboard/img/profile_avatar.png"; ?>" id="galton_icon">  
+                </div>                
+                
+                <div id="galton">
+                  <div class="bar" id="galton_bar1"></div>
+                  <div class="bar" id="galton_bar2"></div>
+                  <div class="bar" id="galton_bar3"></div>
+                  <div class="bar" id="galton_bar4"></div>
+                  <div class="bar" id="galton_bar5"></div>
+                  <div class="bar" id="galton_bar6"></div>
+                  <div class="bar" id="galton_bar7"></div>
+                  <div class="bar" id="galton_bar8"></div>
+                  <div class="bar" id="galton_bar9"></div>
+                  <div class="bar" id="galton_bar10"></div>
+                  <div class="bar" id="galton_bar11"></div>
+                </div>  
+              </div>
               <!-- <div id="poll_holder2">
                 <div id="plain_slider_wrapper">
                   <div id="plain_slider">
@@ -245,12 +268,12 @@
         <div class="half floatleft textright"><i class="fas fa-angle-double-up arrow_up"></i><i class="fas fa-angle-double-down arrow_down"></i></div>
       </div>
       <div class="info_paragraph_section">Yes, just move the icon to a different position - but each reader only has one vote! After voting, you'll see where other readers have positioned themselves.</div>
-      <div class="info_header_section">
+      <!-- <div class="info_header_section">
         <div class="half floatleft textleft"><p class="header_text">What happens to my vote?</p></div>
         <div class="half floatleft textright"><i class="fas fa-angle-double-up arrow_up"></i><i class="fas fa-angle-double-down arrow_down"></i></div>
       </div>                  
       <div class="info_paragraph_section">At Viewpointb, we take your privacy seriously. We do not collect any personal data - the vote data we store is anonymised. More information on Viewpointb's Privacy Policy is available here: Viewpointb Privacy Policy.
-If you still wish to opt out, please follow this link and click the Opt Out button at the bottom of the page.</div>
+If you still wish to opt out, please follow this link and click the Opt Out button at the bottom of the page.</div> -->
     </div>
 </div>
 <!-- end add customer modal -->

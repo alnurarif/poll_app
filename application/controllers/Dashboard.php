@@ -21,6 +21,7 @@ class Dashboard extends CI_Controller {
     public function index(){
         $company_id = $this->session->userdata('company_id');
         $data = array();
+        $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
         $data['polls'] = $this->Common_model->getAllByTableByFieldOrderByField("tbl_polls","company_id",$company_id,"id","DESC");
         $data['main_content'] = $this->load->view('dashboard/dashboard', $data, TRUE);
         $this->load->view('template/dashboard_template', $data);
@@ -35,11 +36,15 @@ class Dashboard extends CI_Controller {
     //speedo meter section starts
     public function addSpeedoMeter(){
         $data = array();
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
         $data['main_content'] = $this->load->view('dashboard/addSpeedoMeter', $data, TRUE);
         $this->load->view('template/dashboard_template', $data);   
     }
     public function editSpeedoMeter($id){
         $data = array();
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
         $data['poll'] = $this->Common_model->getDataById($id,'tbl_polls');
         $data['poll_icons'] = $this->Poll_icons_model->getPollIcons($id);
         $data['main_content'] = $this->load->view('dashboard/editSpeedoMeter', $data, TRUE);
@@ -48,7 +53,8 @@ class Dashboard extends CI_Controller {
     public function copySpeedoMeter($id = ""){
         $data = array();
         $data['poll'] = $poll = $this->Common_model->getDataById($id,'tbl_polls');
-
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
         $speedoMeterPollInfo = array();
         $speedoMeterPollInfo['question'] = $poll->question;
         $speedoMeterPollInfo['left_label'] = $poll->left_label;
@@ -67,6 +73,8 @@ class Dashboard extends CI_Controller {
     }
     public function viewSpeedoMeter($id){
         $data = array();
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
         $data['poll'] = $this->Common_model->getDataById($id,'tbl_polls');
         $data['poll_icons'] = $this->Poll_icons_model->getPollIcons($id);
         $data['first'] = $this->Vote_model->getFirstTypeVote($id);
@@ -108,10 +116,14 @@ class Dashboard extends CI_Controller {
             } else {
                 if ($id == "") {
                     $data = array();
+                    $company_id = $this->session->userdata('company_id');
+                    $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                     $data['main_content'] = $this->load->view('dashboard/addSpeedoMeter', $data, TRUE);
                     $this->load->view('template/dashboard_template', $data);
                 } else {
                     $data = array();
+                    $company_id = $this->session->userdata('company_id');
+                    $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                     $data['encrypted_id'] = $encrypted_id;
                     $data['customer_information'] = $this->Common_model->getDataById($id, "tbl_polls");
                     $data['main_content'] = $this->load->view('master/customer/editCustomer', $data, TRUE);
@@ -121,10 +133,14 @@ class Dashboard extends CI_Controller {
         } else {
             if ($id == "") {
                 $data = array();
+                $company_id = $this->session->userdata('company_id');
+                $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                 $data['main_content'] = $this->load->view('master/customer/addCustomer', $data, TRUE);
                 $this->load->view('template/dashboard_template', $data);
             } else {
                 $data = array();
+                $company_id = $this->session->userdata('company_id');
+                $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                 $data['encrypted_id'] = $encrypted_id;
                 $data['customer_information'] = $this->Common_model->getDataById($id, "tbl_polls");
                 $data['main_content'] = $this->load->view('master/customer/editCustomer', $data, TRUE);
@@ -138,11 +154,21 @@ class Dashboard extends CI_Controller {
     //slider poll section starts
     public function addSliderPoll(){
         $data = array();
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         $data['main_content'] = $this->load->view('dashboard/addSliderPoll', $data, TRUE);
         $this->load->view('template/dashboard_template', $data);   
     }
     public function editSliderPoll($id){
         $data = array();
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         $data['poll'] = $this->Common_model->getDataById($id,'tbl_polls');
         $data['poll_icons'] = $this->Poll_icons_model->getPollIcons($id);
         $data['main_content'] = $this->load->view('dashboard/editSliderPoll', $data, TRUE);
@@ -150,6 +176,11 @@ class Dashboard extends CI_Controller {
     }
     public function viewSliderPoll($id){
         $data = array();
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         $data['poll'] = $this->Common_model->getDataById($id,'tbl_polls');
         $data['poll_icons'] = $this->Poll_icons_model->getPollIcons($id);
         $data['first'] = $this->Vote_model->getFirstTypeSliderVote($id);
@@ -163,7 +194,11 @@ class Dashboard extends CI_Controller {
     public function copySliderPoll($id = ""){
         $data = array();
         $data['poll'] = $poll = $this->Common_model->getDataById($id,'tbl_polls');
-
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         $speedoMeterPollInfo = array();
         $speedoMeterPollInfo['question'] = $poll->question;
         $speedoMeterPollInfo['left_label'] = $poll->left_label;
@@ -179,6 +214,11 @@ class Dashboard extends CI_Controller {
         redirect('Dashboard/editSliderPoll/'.$id);
     }
     public function addEditSliderPoll($id = ''){
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         if ($this->input->post('question')) {
             $this->form_validation->set_rules('question', 'Question', 'required|min_length[5]');
             $this->form_validation->set_rules('left_label', 'Left Label', 'required|min_length[2]');
@@ -210,10 +250,14 @@ class Dashboard extends CI_Controller {
             } else {
                 if ($id == "") {
                     $data = array();
+                    $company_id = $this->session->userdata('company_id');
+                    $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                     $data['main_content'] = $this->load->view('dashboard/addSliderPoll', $data, TRUE);
                     $this->load->view('template/dashboard_template', $data);
                 } else {
                     $data = array();
+                    $company_id = $this->session->userdata('company_id');
+                    $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                     $data['encrypted_id'] = $encrypted_id;
                     $data['customer_information'] = $this->Common_model->getDataById($id, "tbl_polls");
                     $data['main_content'] = $this->load->view('master/customer/editCustomer', $data, TRUE);
@@ -223,10 +267,14 @@ class Dashboard extends CI_Controller {
         } else {
             if ($id == "") {
                 $data = array();
+                $company_id = $this->session->userdata('company_id');
+                $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                 $data['main_content'] = $this->load->view('master/customer/addCustomer', $data, TRUE);
                 $this->load->view('template/dashboard_template', $data);
             } else {
                 $data = array();
+                $company_id = $this->session->userdata('company_id');
+                $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                 $data['encrypted_id'] = $encrypted_id;
                 $data['customer_information'] = $this->Common_model->getDataById($id, "tbl_polls");
                 $data['main_content'] = $this->load->view('master/customer/editCustomer', $data, TRUE);
@@ -235,7 +283,8 @@ class Dashboard extends CI_Controller {
         }
     }
     public function getIcons(){
-        $data = $this->Common_model->getAllByTableName('tbl_icons');  
+        $company_id = $this->session->userdata('company_id');
+        $data = $this->Poll_icons_model->getAllIconsByCompanyId($company_id);  
         echo json_encode($data);
     }
     public function upload_icon(){
@@ -250,7 +299,7 @@ class Dashboard extends CI_Controller {
             $icon_info = array();
             $icon_info['icon_name'] = htmlspecialchars($this->input->post($this->security->xss_clean('icon_name')));
             $icon_info['icon_detail'] = htmlspecialchars($this->input->post($this->security->xss_clean('icon_detail')));
-            $speedoMeterPollInfo['company_id'] = $this->session->userdata('company_id');
+            $icon_info['company_id'] = $this->session->userdata('company_id');
             $icon_info['created_at'] = date('Y-m-d H:i:s');
             $icon_info['updated_at'] = date('Y-m-d H:i:s');
             if ($_FILES['icon']['name'] != "") {  
@@ -370,11 +419,21 @@ class Dashboard extends CI_Controller {
     //Compass section starts
     public function addCompass(){
         $data = array();
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         $data['main_content'] = $this->load->view('dashboard/addCompass', $data, TRUE);
         $this->load->view('template/dashboard_template', $data);   
     }
     public function editCompass($id){
         $data = array();
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         $data['poll'] = $this->Common_model->getDataById($id,'tbl_polls');
         $data['poll_icons'] = $this->Poll_icons_model->getPollIcons($id);
         $data['main_content'] = $this->load->view('dashboard/editCompass', $data, TRUE);
@@ -383,7 +442,11 @@ class Dashboard extends CI_Controller {
     public function copyCompass($id = ""){
         $data = array();
         $data['poll'] = $poll = $this->Common_model->getDataById($id,'tbl_polls');
-
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         $compassPollInfo = array();
         $compassPollInfo['question'] = $poll->question;
         $compassPollInfo['first_label'] = $poll->first_label;
@@ -404,6 +467,11 @@ class Dashboard extends CI_Controller {
     public function viewCompass($id){
         $data = array();
         $poll_id = $id;
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         $data['poll'] = $this->Common_model->getDataById($id,'tbl_polls');
         $data['poll_icons'] = $this->Poll_icons_model->getPollIcons($id);
         $data['first'] = $this->Vote_model->getFirstTypeVoteCompass($poll_id);
@@ -417,6 +485,11 @@ class Dashboard extends CI_Controller {
         $this->load->view('template/dashboard_template', $data);   
     }
     public function addEditCompassPoll($id = ''){
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $company = $this->Common_model->getDataById($company_id,'tbl_companies');
+        if($company->package_id != 2 && $company->package_id != 1 && $company->package_id != 4 && $company->package_id !=5){
+            redirect('Dashboard');
+        }
         if ($this->input->post('question')) {
 
             $this->form_validation->set_rules('question', 'Question', 'required|min_length[5]');
@@ -432,6 +505,7 @@ class Dashboard extends CI_Controller {
                 $compassPollInfo['second_label'] = $this->input->post($this->security->xss_clean('second_label'));
                 $compassPollInfo['third_label'] = $this->input->post($this->security->xss_clean('third_label'));
                 $compassPollInfo['forth_label'] = $this->input->post($this->security->xss_clean('forth_label'));
+                $compassPollInfo['indicator_color'] = $this->input->post($this->security->xss_clean('indicator_color'));
                 $compassPollInfo['poll_id'] = $this->input->post($this->security->xss_clean('poll_id'));
                 $compassPollInfo['poll_type'] = 'Compass';
                 $compassPollInfo['company_id'] = $this->session->userdata('company_id');
@@ -450,10 +524,14 @@ class Dashboard extends CI_Controller {
             } else {
                 if ($id == "") {
                     $data = array();
+                    $company_id = $this->session->userdata('company_id');
+                    $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                     $data['main_content'] = $this->load->view('dashboard/addCompass', $data, TRUE);
                     $this->load->view('template/dashboard_template', $data);
                 } else {
                     $data = array();
+                    $company_id = $this->session->userdata('company_id');
+                    $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                     $data['encrypted_id'] = $encrypted_id;
                     $data['customer_information'] = $this->Common_model->getDataById($id, "tbl_polls");
                     $data['main_content'] = $this->load->view('master/customer/editCustomer', $data, TRUE);
@@ -463,10 +541,14 @@ class Dashboard extends CI_Controller {
         } else {
             if ($id == "") {
                 $data = array();
+                $company_id = $this->session->userdata('company_id');
+                $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                 $data['main_content'] = $this->load->view('master/customer/addCustomer', $data, TRUE);
                 $this->load->view('template/dashboard_template', $data);
             } else {
                 $data = array();
+                $company_id = $this->session->userdata('company_id');
+                $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
                 $data['encrypted_id'] = $encrypted_id;
                 $data['customer_information'] = $this->Common_model->getDataById($id, "tbl_polls");
                 $data['main_content'] = $this->load->view('master/customer/editCustomer', $data, TRUE);
@@ -490,6 +572,8 @@ class Dashboard extends CI_Controller {
         $later = new DateTime($current_date);
 
         $data = array();
+        $company_id = $this->session->userdata('company_id');
+        $data['company'] = $this->Common_model->getDataById($company_id,'tbl_companies');
         $data['total_votes'] = $this->Vote_model->getVotesNumberByPollId($poll_id)->total_votes;
         $data['diff'] = $later->diff($earlier)->format("%a");
         $data['poll_three_highest_days'] = $poll_three_highest_days;

@@ -75,6 +75,7 @@
     left: 132px;
     cursor: pointer;
     background-size: 38px 235px;
+    transition : transform .8s ease;
 }
 #speedo_meter_pointer_icon {
     background: url(../../dashboard/img/speedo_meter_basic_pointer.png) center center no-repeat;
@@ -94,7 +95,7 @@
     -webkit-transition: margin-left .4s,margin-top .4s,width .4s, height .4s; /* For Safari 3.1 to 6.0 */
     transition: margin-left .4s,margin-top .4s,width .4s, height .4s;
 }
-#debate_between{min-height:70px;margin: 18px 0px 0px 0px;}
+#debate_between{min-height:70px;margin: 18px 0px 0px 0px;position: relative;}
 #debate_between p{
     font-size: 14px;
     font-weight: normal;
@@ -492,7 +493,7 @@ display:none;
 }
 
 #compass_hand {
-    background: url(../../dashboard/img/clock_hand4.png) center center no-repeat;
+    /*background: url(../../dashboard/img/clock_hand4.png) center center no-repeat;*/
     width: 30px;
     height: 235px;
     position: absolute;
@@ -541,3 +542,86 @@ div.circTxt p{
     font-family: courier new;
     color: #000;
 }
+
+
+
+
+
+.debate_create_now_button{
+    background-color: #000000;
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0px 10px 0px 10px;
+    margin: 2px 0px 0px 206px;
+}
+.debate_create_now_button:hover{
+    color:#fff;
+}
+
+
+
+
+
+
+/******galton start************/
+
+#galton_wrapper{
+    overflow: hidden;
+    margin: 0px 0px 20px 0px;       
+    width: 100%;
+}
+#galton{
+    width:400px;
+    height: 400px;
+    background : #fff;  
+    position:relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#galton svg{
+    position:absolute;top:-7px;transition: top 1.5s linear;     
+}
+#galton_bar1{right:360px;}
+#galton_bar2{right:325px;}
+#galton_bar3{right:290px;}
+#galton_bar4{right:255px;}
+#galton_bar5{right:220px;}
+#galton_bar6{right:185px;}
+#galton_bar7{right:150px;}
+#galton_bar8{right:115px;}
+#galton_bar9{right:80px;}
+#galton_bar10{right:45px;}
+#galton_bar11{right:10px;}
+
+.rain_drop{width:5px;position:absolute;top:-7px;transition: top 1.5s linear;}
+
+.edit_section{
+    margin:20px 0px 40px 0px;
+}
+#galton_icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #cfcfcf;
+    
+}
+.galton_icon_section{
+    width:400px;
+    margin: 0px auto;
+    text-align: left;
+}
+#galton .bar{
+        width:25px;
+        margin-right:.09%;
+        float:left;
+        height:50%;
+        position:absolute;
+        bottom:0px;
+        transition: height 5s;
+        height:0px;
+    }
+
+/********galton end***********/

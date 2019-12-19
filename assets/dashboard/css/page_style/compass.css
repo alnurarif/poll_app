@@ -5,7 +5,7 @@
 .textrightt{text-align: right;}
 .half{width:50%;}
 #compass_hand {
-    background: url(../../img/clock_hand4.png) center center no-repeat;
+    /*background: url(../../img/clock_hand4.png) center center no-repeat;*/
     width: 30px;
     height: 235px;
     position: absolute;

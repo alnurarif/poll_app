@@ -1,6 +1,7 @@
 <?php 
-	// $galton_bar_and_drop_color = "#80c5de";
-	$galton_bar_and_drop_color = "#7f00ff";
+	$galton_bar_and_drop_color = ($galton->galton_color)? "#".$galton->galton_color: "#80c5de";
+	// $galton_bar_and_drop_color = "#7f00ff";
+	$galton_icon = ($galton->icon_file_name)?base_url()."assets/galton_board/img/user_icons/".$galton->icon_file_name:base_url()."assets/dashboard/img/profile_avatar.png";
 
 	$galton_info = $galton_info;
 	$last_galton_result_array = $galton_info['last_galton_result_array'];
@@ -20,16 +21,6 @@
 
 ?>
 <style type="text/css">
-	#galton_wrapper{
-		
-	}
-	#galton{
-		width:400px;
-		height: 400px;
-		background : #fff;	
-		position:relative;
-		overflow:hidden;
-	}
 	#galton .bar{
 		width:25px;
 		margin-right:.09%;
@@ -41,24 +32,18 @@
 		transition: height 5s;
 		height:0px;
 	}
-	#galton svg{
-		position:absolute;top:-7px;transition: top 1.5s linear;		
-	}
-	#galton_bar1{right:360px;}
-	#galton_bar2{right:325px;}
-	#galton_bar3{right:290px;}
-	#galton_bar4{right:255px;}
-	#galton_bar5{right:220px;}
-	#galton_bar6{right:185px;}
-	#galton_bar7{right:150px;}
-	#galton_bar8{right:115px;}
-	#galton_bar9{right:80px;}
-	#galton_bar10{right:45px;}
-	#galton_bar11{right:10px;}
-
-	.rain_drop{width:5px;position:absolute;top:-7px;transition: top 1.5s linear;}
 </style>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/galton_board/css/page_style/galton_board.css">
+<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/css/wheelcolorpicker.css" />
+<script src="<?php echo base_url(); ?>assets/dashboard/js/jquery-ui.js"></script>
+<script src="<?php echo base_url(); ?>assets/dashboard/js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/dashboard/js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/dashboard/js/jquery.wheelcolorpicker.min.js"></script>
 <div id="galton_wrapper">
+	<div class="galton_icon_section">
+		<img src="<?php echo $galton_icon; ?>" id="galton_icon">	
+	</div>
+	
 	<div id="galton">
 		<div class="bar" id="galton_bar1"></div>
 		<div class="bar" id="galton_bar2"></div>
@@ -74,7 +59,22 @@
 	</div>	
 </div>
 
-
+<div class="edit_section fix">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<?php echo form_open(base_url('Galton_board/addEditGaltonFrom'),array('id' => 'addEditGaltonForm','method' => 'post','style' => 'width:100%;', 'enctype' => 'multipart/form-data')); ?>
+			    <input value="<?php echo $galton->galton_color; ?>" name="galton_color" class="form-control" type="text" placeholder="Galton Color" style="text-align: left;" data-wheelcolorpicker />
+			    <!-- <input value="" name="first_label" class="form-control" type="text" placeholder="First Label ..... " id="compass_option_1"> -->
+			    Select icon to upload:
+			    <input class="form-control" type="file" name="galton_icon" id="galton_icon_upload" accept="image/*">
+			    <input class="form-control" type="submit" value="Update" name="submit">
+			<?php echo form_close(); ?>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+	
+</div>
 <script type="text/javascript">
 	var base_url = $('base').attr('data-base');
 	var galton_bar_height1 = <?php echo $galton_bar_height1; ?>;
@@ -93,9 +93,11 @@
 		var image_left = Math.floor(Math.random() * 400) + 1;
 		
 		$('#galton').append('<svg width="5px" viewbox="0 0 30 42" style="left:'+image_left+'px"> <path fill="<?php echo $galton_bar_and_drop_color; ?>" stroke="<?php echo $galton_bar_and_drop_color; ?>" stroke-width="1.5"d="M15 3 Q16.5 6.8 25 18 A12.8 12.8 0 1 1 5 18 Q13.5 6.8 15 3z" /> </svg>'); 
+		// <path stroke-width="2.5" d="M15 3 Q16.5 6.8 25 148 A18.8 16.8 0 1 1 5 148 Q16.5 6.8 15 3z" />
 		// $('#galton').append('<img style="left:'+image_left+'px" src="'+base_url+'assets/dashboard/img/rain_drop_small.png" class="rain_drop"/>');
 		
 	}
+	// <path stroke-width="2.5" d="M15 3 Q16.5 6.8 25 148 A18.8 16.8 0 1 1 5 148 Q16.5 6.8 15 3z" />
 	
 	setTimeout(function(){ 
 		$('#galton_bar1').css('height',galton_bar_height1*2+'%')
@@ -123,4 +125,5 @@
 	}
 
 
-	console.log(galton_bar_height1, galton_bar_height2, galton_bar_height3, galton_bar_height4, galton_bar_height5, galton_bar_height6, galton_bar_height7, galton_bar_height8, galton_bar_height9, galton_bar_height10, galton_bar_height11); </script>
+	console.log(galton_bar_height1, galton_bar_height2, galton_bar_height3, galton_bar_height4, galton_bar_height5, galton_bar_height6, galton_bar_height7, galton_bar_height8, galton_bar_height9, galton_bar_height10, galton_bar_height11); 
+</script>

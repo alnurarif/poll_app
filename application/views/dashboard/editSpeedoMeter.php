@@ -105,7 +105,9 @@
                                 <input value="<?php echo  $poll->left_label; ?>" name="left_label" class="form-control" type="text" placeholder="Left Label ..... ">
                             </div>
                             <div class="left">
+                                <?php if($company->package_id == 1 || $company->package_id == 2 || $company->package_id == 4 || $company->package_id == 5) {?>
                                 <input value="<?php echo  $poll->indicator_color; ?>" name="indicator_color" class="form-control" type="text" placeholder="Indicator Color" style="text-align: left;" data-wheelcolorpicker />
+                                <?php }else{echo "&nbsp;";} ?>                                
                                 <!-- <img src="<?php echo base_url(); ?>assets/dashboard/img/download.png" style="margin-top: -179px;"> -->
                             </div>
                             <div class="left">

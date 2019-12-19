@@ -15,13 +15,15 @@
 								<a class="nav-link" href="<?php echo base_url(); ?>Dashboard">Dashboard</span></a>
 							</li>
 
-							<li class="nav-item active">
+							<!-- <li class="nav-item active">
 								<a class="nav-link" href="#">Library <span class="sr-only">(current)</span></a>
-							</li>
-
+							</li> -->
+							
+							<?php if($company->package_id == 2 || $company->package_id == 5) {?>
 							<li class="nav-item active">
 								<a class="nav-link" href="<?php echo base_url(); ?>Insights">Insight <span class="sr-only">(current)</span></a>
 							</li>
+							<?php } ?>
 
 
 							<li>
@@ -31,8 +33,10 @@
 									</button>
 									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<a class="dropdown-item" href="<?php echo base_url(); ?>Dashboard/addSpeedoMeter">Speedometer</a>
+										<?php if($company->bought_package != 0 || $company->bought_package != 3) {?>
 										<a class="dropdown-item" href="<?php echo base_url(); ?>Dashboard/addCompass">Compass</a>
-										<a class="dropdown-item" href="<?php echo base_url(); ?>Dashboard/addSliderPoll"">Slider</a>
+										<a class="dropdown-item" href="<?php echo base_url(); ?>Dashboard/addSliderPoll">Slider</a>
+										<?php } ?>
 									</div>
 								</div>
 							</li>
